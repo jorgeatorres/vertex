@@ -1,0 +1,12 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="editor_${file.id}"
+     py:with="open_readonly=(revision is not None);"> <!--! FIXME: this is kinda-hack useful for now  -->
+     
+     <py:choose test="file.is_binary">
+        <xi:include py:when="True" href="editor-binary.html" />
+        <xi:include py:otherwise="" href="editor-latex.html" />
+    </py:choose>
+
+</div>

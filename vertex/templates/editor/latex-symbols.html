@@ -1,0 +1,14 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
+     
+    <div py:for="group, gsymbols in symbols.iteritems()" class="symbol-group">
+        <span>${group}</span>
+        <ul>
+            <li py:for="symbol in gsymbols">
+                <a href="" title="${symbol['command']}"><img src="${tg.url('/editor/latex_symbols_thumb/%s' % symbol['id'])}" /></a>
+            </li>
+        </ul>
+    </div>
+
+</div>

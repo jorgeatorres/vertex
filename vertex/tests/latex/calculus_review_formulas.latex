@@ -1,0 +1,423 @@
+\documentclass{article}
+\title{Calculus Review and Formulas}
+\author{Keone Hon}
+\date{Revised 4/29/04}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{formula}{Formula}
+\usepackage{amssymb}
+\usepackage[pdftex]{hyperref}
+
+\begin{document}
+\maketitle
+
+\section{Functions}
+\label{sec:Functions}
+
+\subsection{Definitions}
+\label{sec:Definitions}
+
+\begin{definition}[Function]
+A function is a rule or set of rules that associates an input $a$ with exactly one output $b$.
+\end{definition}
+
+
+\begin{definition}[Domain] 
+The domain of a function $f$ is the set of values $x$ for which $f(x)$ is defined.
+\end{definition}
+
+
+\begin{definition} [Range] 
+The range of a function $f$ is the set of all possible outputs $f(x)$.
+\end{definition}
+
+
+$\vartriangleright$ Sums, differences, etc. of functions are sometimes abbreviated:
+\begin{itemize}
+	\item $(f+g)(x) = f(x) + g(x)$
+	\item $(f-g)(x) = f(x) - g(x)$
+	\item $(fg)(x) = f(x)g(x)$
+	\item $\displaystyle (f/g)(x) = \frac{f(x)}{g(x)}$, provided that $g(x) \neq 0$
+	\item $(f \circ g)(x) = f(g(x))$
+	\item Note: $(f \circ g)(x)$ is not necessarily equal to $(g \circ f)(x)$.
+\end{itemize}
+
+
+\begin{definition}[Odd function] 
+A function is odd if for all $x$ in the domain of $f$, $f(-x) = -f(x)$.  An odd function is symmetric about the origin $(0,0)$.
+\end{definition}
+
+
+\begin{definition}[Even function] 
+A function is even if for all $x$ in the domain of $f$, $f(-x) = f(x)$.  An even function is symmetric about the y=axis.
+\end{definition}
+
+
+\begin{definition}[One-to-one function] 
+A function $f$ is one-to-one if, for any $a$ and $b$ in the domain of $f$ such that $a \neq b$, then $f(a) \neq f(b)$.  In other words, each output yields a unique input.
+\end{definition}  
+\begin{itemize}
+	\item A function is one-to-one if any horizontal line cuts the function at one or fewer points.  (This is called the horizontal line test.)
+	\item If a function is one-to-one, then it has an inverse.  This inverse function, denoted $f^{-1}$, is defined as follows: $f^{-1}(y) = x$ iff $f(x) = y$.  Thus, $f^{-1}(f(x)) = x$
+	\item $f^{-1}$ is the reflection of $f$ across the line $y=x$.
+\end{itemize}
+
+
+\begin{definition} [Zero] 
+A zero of a function $f$ is a number $x$ for which $f(x) = 0$.  Also called the x-intercept of the graph.  To find the zeroes of a function $f(x)$, let f(x) = 0 and solve for x using any methods.
+\end{definition}
+
+
+\begin{definition} [Polynomial] 
+A polynomial is a function consisting only of powers of the variable (usually $x$) multiplied by constant coefficients.
+\end{definition}
+
+
+\begin{definition} [Rational Function] 
+A rational function is of the form $\displaystyle f(x) = \frac{P(x)}{Q(x)}$, where $P(x)$ and $Q(x)$ are polynomials.  Note that $Q(x) \neq 0$.
+\end{definition}
+
+\subsection{The Absolute Value Function}
+\label{sec:TheAbsoluteValueFunction}
+
+The absolute value function $f(x) = |x|$ produces the positive ``version'' of any input.  For example, $|1| = 1$ and $|-1| = 1$.
+
+The absolute value function may be expressed as follows:
+\begin{itemize}
+	\item If $x \geq 0$, then $f(x) = |x| = x$.
+	\item If $x < 0$, then $f(x) = |x| = -x$.
+\end{itemize}
+
+$\vartriangleright$ The triangle inequality states that $|a+b| \leq |a| + |b|$.
+
+
+\subsection{The Greatest Integer Function}
+\label{sec:TheGreatestIntegerFunction}
+
+The greatest integer function $f(x) = [x]$ outputs the greatest integer less than or equal to $x$.  For example, $[1.4] = 1$, $[\pi] = 3$, and $[-3.5] = -4$.  
+
+The greatest integer function may be expressed as follows:
+\begin{itemize}
+	\item If $x$ is integral, then $f(x) = [x] = x$.
+	\item If $x = a + b$, where $0 < b < 1$, then $f(x) = [x] = a$.
+\end{itemize}
+
+
+\subsection{Trigonometry}
+\label{sec:Trigonometry}
+
+\subsubsection{Right-Triangle Definitions}
+\label{sec:RightTriangleDefinitions}
+Consider right triangle ABC, where C is the right angle.  Then:
+\\ $\displaystyle \sin{A} = \frac{BC}{AB}$ = $\frac{\textrm{opposite}}{\textrm{hypotenuse}}$
+\\ $\displaystyle \cos{A} = \frac{AC}{AB}$ = $\frac{\textrm{adjacent}}{\textrm{hypotenuse}}$
+\\ $\displaystyle \tan(A) = \frac{BC}{AC}$ = $\frac{\textrm{opposite}}{\textrm{adjacent}}$
+\\ $\displaystyle \csc{A} = \frac{1}{\sin{A}} = \frac{AB}{BC}$ = $\frac{\textrm{hypotenuse}}{\textrm{opposite}}$
+\\ $\displaystyle \sec{A} = \frac{1}{\cos{A}} = \frac{AB}{AC}$ = $\frac{\textrm{hypotenuse}}{\textrm{adjacent}}$
+\\ $\displaystyle \cot{A} = \frac{1}{\tan{A}} = \frac{AC}{BC}$ = $\frac{\textrm{adjacent}}{\textrm{opposite}}$
+
+One easy way to remember these definitions is to memorize the ``word''
+\\ SOHCAHTOA, which stands for:
+\begin{itemize}
+	\item \textbf{s}in = \textbf{o}pposite/\textbf{h}ypotenuse
+	\item \textbf{c}os = \textbf{a}djacent/\textbf{h}ypotenuse
+	\item \textbf{t}an = \textbf{o}pposite/\textbf{a}djacent
+\end{itemize}
+
+\subsubsection{Reduction Formulas}
+\label{sec:ReductionFormulas}
+
+\begin{enumerate}
+	\item $\sin(-x) = -\sin{x}$
+	\item $\cos(-x) = \cos{x}$
+	\item $\sin(\frac{\pi}{2} - x) = \cos{x}$
+	\item $\cos(\frac{\pi}{2} - x) = \sin{x}$
+	\item $\sin(\frac{\pi}{2} + x) = \cos{x}$
+	\item $\cos(\frac{\pi}{2} + x) = -\sin{x}$
+	\item $\sin(\pi - x) = \sin{x}$
+	\item $\cos(\pi - x) = - \cos{x}$
+	\item $\sin(\pi + x) = - \sin{x}$
+	\item $\cos(\pi - x) = - \cos{x}$
+\end{enumerate}
+
+\subsubsection{Identities}
+\label{sec:Identities}
+
+\begin{enumerate}
+	\item $\sin^2 {x} + \cos^2 {x} = 1$
+	\item $\tan^2 {x} + 1 = \sec^2 {x}$
+	\item $\cot^2 {x} + 1 = \csc^2 {x}$
+\end{enumerate}
+
+\subsubsection{Sum and Difference Formulas}
+\label{sec:SumAndDifferenceFormulas}
+
+\begin{enumerate}
+	\item $\sin(\alpha + \beta) = \sin \alpha \cos \beta + \sin \beta \cos \alpha$
+	\item $\sin(\alpha - \beta) = \sin \alpha \cos \beta - \sin \beta \cos \alpha$
+	\item $\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta $
+	\item $\cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta $
+	\item $\displaystyle \tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta}$
+	\item $\displaystyle \tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta}$
+\end{enumerate}
+
+\subsubsection{Double- and Half-Angle Formulas}
+\label{sec:DoubleAndHalfAngleFormulas}
+
+\begin{enumerate}
+	\item $\sin{2 \alpha} = 2 \sin \alpha \cos \alpha$
+	\item $\cos{2 \alpha} = \cos^2 {x} - \sin^2 {x} = 2 \cos^2 {x} - 1 = 1 - 2 \sin^2 {x}$
+	\item $\displaystyle \tan{2 \alpha} = \frac{2 \tan \alpha}{1 - \tan^2 \alpha}$
+	\item $\displaystyle \sin{\frac{\alpha}{2}} = \pm \sqrt{\frac{1 - \cos \alpha}{2}}$ (determine whether it is + or - by finding the quadrant that $\displaystyle \frac{\alpha}{2}$ lies in)
+	\item $\displaystyle \cos{\frac{\alpha}{2}} = \pm \sqrt{\frac{1 + \cos \alpha}{2}}$ (same as above)
+	\item $\displaystyle \tan{\frac{\alpha}{2}} = \frac{1 - \cos \alpha}{\sin \alpha} = \frac{\sin \alpha}{1 + \cos \alpha}$
+\end{enumerate}
+
+\subsubsection{Other Useful Trig Formulae}
+\label{sec:OtherUsefulTrigFormulae}
+
+(for formulas 3-6, consider the triangle with sides of length $a$, $b$, and $c$, and opposite angles $A$, $B$, and $C$, respectively)
+
+\begin{enumerate}
+	\item $\displaystyle \sin^2 \alpha = \frac{1 - 2 \cos (2 \alpha)}{2}$
+	\item $\displaystyle \cos^2 \alpha = \frac{1 + 2 \cos (2 \alpha)}{2}$
+	\item $\displaystyle \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c}$ (Law of Sines)
+	\item $c^{2} = a^{2} + b^{2} - 2ab \cos C$ (Law of Cosines)
+	\item Area of triangle $= \frac{1}{2} ab \sin C$
+	\item Area of triangle $= \sqrt{s(s-a)(s-b)(s-c)}$, where $\displaystyle s = \frac{a+b+c}{2}$ (Heron's Formula)
+\end{enumerate}
+
+\subsubsection{Changes to the Trig Graphs}
+\label{sec:ChangesToTheTrigGraphs}
+
+\begin{definition}[Periodic]
+A function $f$ is periodic if, for some number $p$, $f(x+p) = f(x)$ for all $x$ in the domain of $f$.  
+\end{definition}
+
+$\vartriangleright$ The trigonometric functions are all periodic.  
+\begin{itemize}
+	\item $\sin x$, $\cos x$, $\csc x$, and $\sec x$ all have periods of $2 \pi$.
+	\item $\tan x$ and $\cot x$ have periods of $\pi$.
+\end{itemize}
+
+$\vartriangleright$ If the $x$ in $\sin x$, $\cos x$, etc., is multiplied by a constant b, the period is divided by that constant:
+\begin{itemize}
+	\item $\sin bx$, $\cos bx$, $\csc bx$, and $\sec bx$ ($b$ constant) all have periods of $\frac{2 \pi}{b}$
+	\item $\tan bx$ and $\cot bx$ have periods of $\frac{\pi}{b}$.
+\end{itemize}
+
+\begin{definition}[Amplitude] 
+The magnitude of an oscillation (only for functions that oscillate, like the sine and cosine).  In the sine and the cosine, the amplitude is half the distance from the minimum to the maximum value.
+\end{definition}
+
+$\vartriangleright$ $A \sin x$ and $A \cos x$ each have amplitude $A$.
+
+\subsubsection{Inverse Trig Functions}
+\label{sec:InverseTrigFunctions}
+
+If $f(x) = \sin x$, then
+\\ $f^{-1}(x) = \sin^{-1} x = \arcsin x$, with $-1 \leq x \leq 1$
+
+If $f(x) = \cos x$, then
+\\ $f^{-1}(x) = \cos^{-1} x = \arccos x$, with $-1 \leq x \leq 1$
+
+If $f(x) = \tan x$, then
+\\ $f^{-1}(x) = \tan^{-1} x = \arctan x$, with $-\frac{\pi}{2} \leq x \leq \frac{\pi}{2}$
+
+
+\subsection{Exponential and Logarithmic Functions}
+\label{sec:ExponentialAndLogarithmicFunctions}
+
+\subsubsection{Laws of Exponents}
+\label{sec:LawsOfExponents}
+\begin{enumerate}
+	\item $a^0 = 1$
+	\item $a^1 = a$
+	\item $a^m \cdot a^n = a^{m+n}$
+	\item $a^m \div a^n = a^{m-n}$
+	\item $(a^m)^n = a^{mn}$
+	\item $\displaystyle a^{-m} = \frac{1}{a^m}$
+\end{enumerate}
+
+\subsubsection{Logarithms}
+\label{sec:Logarithms}
+
+\begin{definition}[Logarithm (log)]
+The logarithm base a of a number is the power to which a should be raised in order to obtain that number.  That is, $y = \log_a x$ iff $a^y = x$
+\end{definition}
+
+\begin{definition}[Natural Logarithm (ln)]
+$y = \ln x$ iff $e^y = x$
+\end{definition}
+
+$\vartriangleright$ Laws of Logarithms (compare to Laws of Exponents)
+\begin{enumerate}
+	\item $\log_a 1 = 0$
+	\item $\log_a a = 1$
+	\item $\log_a mn = \log_a m + \log_a n$
+	\item $\displaystyle \log_a \frac{m}{n} = \log_a m - \log_a n$
+	\item $\log_a x^m = m \log_a x$
+	\item $\displaystyle \log_a x = \frac{1}{\log_x a}$
+\end{enumerate}
+
+\subsection{Parametric Functions}
+\label{sec:ParametricFunctions}
+
+\begin{definition}[Parametric Equations] 
+A set of equations that define several variables (usually two) in terms of another variable.
+\end{definition}
+
+$\vartriangleright$ Parametric equations are often of the form $x=f(t)$ and $y=g(t)$.  
+
+$\vartriangleright$ To eliminate the parameter (in this case, $t$), we often use the identity $ \sin^2 t + \cos^2 t = 1$.
+
+
+\section{Differentiation}
+\label{sec:Differentiation}
+
+\begin{definition}[Difference quotient]
+The fraction $\frac{f(a+h) - f(a)}{h}$ is the difference quotient for $f$ at $a$.  It represents the average rate of change from $x=a$ to $x=a+h$.  As $h$ goes to $0$, the average rate of change approaches the instantaneous rate of change, which we will define as $f'(x)$:
+\[f'(a) = \lim_{h \rightarrow 0} \frac{f(a+h)-f(a)}{h}\] 
+\end{definition}
+
+If f'(a) exists, then from the above equation, we know that $\lim_{x \rightarrow c} = f(c)$.  So if a function is differentiable, the it is continuous.  (However, the reverse is not necessarily true; a function may be continuous at a point but not be differentiable at that point.
+
+A function is not differentiable at $x=a$ if \ldots
+\begin{enumerate}
+	\item The graph has a hole (removable discontinuity) at $x=a$.
+	\item The graph jumps from one y-value to another (jump discontinuity) at $x=a$.
+	\item x=c is a vertical asymptote ($\lim_{x \rightarrow c} = \pm \infty$)
+	\item The graph has a vertical tangent at $x=a$ ($f'(c) = \pm \infty$)
+	\item There is a corner at $x=a$, so there are infinitely many tangents passing through $(x, f(x))$
+	\item There is a cusp at $x=a$, so there are infinitely many tangents passing through $(x,f(x))$.
+\end{enumerate}
+
+\subsection{The Chain Rule}
+\label{sec:TheChainRule}
+
+\begin{theorem}[The Chain Rule]
+To differentiate a compositite function, we take the derivative of the outside function (treating the insides as a single mass), and multiply this by the derivative of the inside function:
+
+$(f(g(x)))' = f'(g(x)) g'(x)$
+
+Alternate form:
+
+Let $y = f(u)$ and $u = g(x)$.  Then
+$\displaystyle \frac{dy}{dx} = \frac{dy}{du} + \frac{du}{dx}$.
+\end{theorem}
+
+
+\subsection{Basic Differentiation Formulas}
+\label{sec:BasicDifferentiationFormulas}
+\begin{enumerate}
+	\item $\frac{da}{dx} = 0$
+	\item $\frac{d}{dx} ax = a$
+	\item $\frac{d}{dx} x^n = nx^{n-1}$
+	\item $\displaystyle \frac{d}{dx} (f(x) + g(x)) = \frac{d}{dx} f(x) + \frac{d}{dx} g(x)$
+	\item $\displaystyle \frac{d}{dx} f(x)g(x) = g(x) \frac{d}{dx} f(x) + f(x) \frac{d}{dx} g(x)$
+	\item $\displaystyle  \frac{d}{dx} \frac{f(x)}{g(x)} = \frac{g(x) \frac{d}{dx} f(x) - f(x) \frac{d}{dx} g(x)}{(g(x))^2}$
+\end{enumerate}
+
+\subsection{Trigonometric Differentiation Formulas}
+\label{sec:TrigonometricDifferentiationFormulas}
+\begin{enumerate}
+	\item $\frac{d}{dx} \sin x = \cos x$
+	\item $\frac{d}{dx} \cos x = - \sin x$
+	\item $\frac{d}{dx} \tan x = \sec^2 x$
+	\item $\frac{d}{dx} \csc x = - \csc x \cot x$
+	\item $\frac{d}{dx} \sec x = \sec x \tan x$
+	\item $\frac{d}{dx} \cot x = - \csc^2 x$
+	\item $\displaystyle \frac{d}{dx} \sin^{-1} x = \frac{1}{\sqrt{1-x^2}}$
+	\item $\displaystyle \frac{d}{dx} \cos^{-1} x = - \frac{1}{\sqrt{1-x^2}}$
+	\item $\displaystyle \frac{d}{dx} \tan^{-1} x = \frac{1}{1+x^2}$
+  \item $\displaystyle \frac{d}{dx} \csc^{-1} x = - \frac{1}{|x| \sqrt{x^2-1}}$
+  \item $\displaystyle \frac{d}{dx} \sec^{-1} x = \frac{1}{|x| \sqrt{x^2-1}}$
+  \item $\displaystyle \frac{d}{dx} \cot^{-1} x = - \frac{1}{1+x^2}$
+\end{enumerate}
+
+\subsection{Exponential/Logarithmic Differentiation Formulas}
+\label{sec:ExponentialAndLogarithmicDifferentiationFormulas}
+\begin{enumerate}
+	\item $\displaystyle \frac{d}{dx} \ln x = \frac{1}{x}$
+	\item $\frac{d}{dx} e^x = e^x$
+	\item $\frac{d}{dx} a^x = a^x \ln a$
+\end{enumerate}
+
+$\vartriangleright$ \textbf{Logarithmic Differentiation} (for derivatives of exponential functions):
+\\ $y = f(x)$
+\\ $\ln y  = \ln f(x)$
+\\ $\displaystyle \frac{d}{dx} \ln y = \frac{d}{dx} \ln f(x)$
+\\ $\displaystyle \frac{1}{y} \cdot \frac{dy}{dx} = \frac{1}{f(x)} \cdot \frac{d}{dx} f(x)$
+\\ $\displaystyle \frac{dy}{dx} = y \cdot \frac{1}{f(x)} \cdot \frac{d}{dx} f(x)$
+
+\subsection{Implicit Differentiation}
+\label{sec:ImplicitDifferentiation}
+
+When we do not have an explicit form ($y=f(x)$) for $y$, it may be easiest to differentiate implicitly.  This is done by differentiating both sides with respect to $x$, and then solving for $\frac{dy}{dx}$.
+
+\subsection{Other Formulae and Theorems}
+\label{sec:OtherFormulaeAndTheorems}
+
+\begin{formula}[Derivatives of Parametric Functions]
+Suppose that $x = f(t)$ and $y=g(t)$ are differentiable functions of $t$.  Then
+\\ $\displaystyle \frac{dy}{dx} = \frac{dy/dt}{dx/dt}$
+
+(you can remember this by imagining each $\frac{1}{dt}$ cancelling)
+\\ $\displaystyle \frac{d^2 y}{dx^2} = ( \frac{d}{dt} \frac{dy}{dx} ) \frac{dt}{dx}$
+\end{formula}
+
+\begin{formula}[Derivative of an Inverse Function]
+Suppose that $f(x)$ is a one-to-one function (that is, it has an inverse).  Then if f(x) passes through the point $(a,b)$, its inverse $f^{-1}(x)$ will pass through the point $(b,a)$. So
+
+$\displaystyle (f^{-1})'(b) = \frac{1}{f'(a)}$.
+\end{formula}
+
+
+\begin{theorem}[The Mean Value Theorem (MVT)]
+If the function $f(x)$ is continuous on the interval $[a,b]$ and differentiable on the interval $(a,b)$, then there exists at least one number $c$ such that $\displaystyle \frac{f(b)-f(a)}{b-a} = f'(c)$.   (That is, the instantaneous rate of change is equal to the average rate of change at some point on the interval.)
+\end{theorem}
+
+The following is a specific case of the MVT:
+
+\begin{theorem}[Rolle's Theorem]
+If $f(a) = f(b) = 0$, then for some $c$ in $[a,b]$, $f'(c) = 0$.
+\end{theorem}
+
+\begin{theorem}[L'Hopital's Rule]
+If one of the four is true:
+\begin{itemize}
+	\item $\displaystyle \lim_{x \rightarrow a} f(x) = \lim_{x \rightarrow a} g(x) = 0$,
+	\item $\displaystyle \lim_{x \rightarrow \infty} f(x) = \lim_{x \rightarrow \infty} g(x) = 0$, 
+	\item $\displaystyle \lim_{x \rightarrow a} f(x) = \lim_{x \rightarrow a} g(x) = \infty$, or
+	\item $\displaystyle \lim_{x \rightarrow \infty} f(x) = \lim_{x \rightarrow \infty} g(x) = \infty$
+\end{itemize}
+
+then the limit in question is equal to 
+
+$\displaystyle \lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}$ or $\displaystyle \lim_{x \rightarrow \infty} \frac{f'(x)}{g'(x)}$, depending on whether $x$ was approaching $a$ or $\infty$.
+\end{theorem}
+
+L'Hopital's rule can be applied to certain other indeterminate forms, namely $0 \cdot \infty$ and $0^0$.  To apply it to the former, rewrite it as $0 \cdot \frac{1}{0} = \frac{0}{0}$.  To apply it to the latter, rewrite it as $e^{ln(0^0)}$ and apply the laws of logarithms.
+
+\subsection{Estimating}
+\label{sec:Estimating}
+
+It is possible to estimate the value of a derivative at $x=a$ by finding the difference quotient $\frac{f(a+h) - f(a)}{h}$ for small values of $h$.  
+
+Alternatively, it may be desirable to use the symmetric difference quotient $\displaystyle \frac{f(a+h) - f(a-h)}{2h}$ to estimate $f'(a)$.
+
+\section{Applications of Differentiation}
+\label{sec:ApplicationsOfDifferentiation}
+
+\subsection{Slope}
+\label{sec:Slope}
+
+The value of the derivative of a curve at $x=a$ is the slope of the curve at that point.
+
+\begin{definition}[Critical Point]
+A critical point is a point at $x=c$ such that $f'(c) = 0$ or $f'(c)$ is undefined.  To determine the critical points of a function, find its derivative, determine which values of $x$ make it undefined, and solve for $f'(x) = 0$ for the remaining values.
+\end{definition}
+
+\end{document}

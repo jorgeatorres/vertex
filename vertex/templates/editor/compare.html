@@ -1,0 +1,40 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="revision-comparison">
+     
+     <a href="" onclick="$('div#compare-window').fadeOut(); return false;" style="float: right;">[cerrar]</a><br/>
+
+    <py:choose test="rev1.file.is_binary">
+
+    <div py:when="False" py:strip="">
+	     <?python
+	     from difflib import HtmlDiff
+	     html_diff = HtmlDiff(tabsize=4, wrapcolumn=80).make_table(rev1.content.splitlines(), rev2.content.splitlines(), context=True) 
+	     ?>
+	     
+	     <div class="revisions-data" style="display: none;">
+	        <div class="rev1"><b>Revisión del ${rev1.created_on}</b><br/>${rev1.user.name}</div>
+	        <div class="rev2"><b>Revisión del ${rev2.created_on}</b><br/>${rev1.user.name}</div>
+	     </div>
+	     
+	     ${XML(html_diff)}
+	     
+	     <script type="text/javascript">
+	     $(function(){
+	        $('div#revision-comparison tbody').before('<thead><tr>' +
+	        '<th class="diff_next"></th>' +
+	        '<th colspan="2" class="diff_header">' + $('div.revisions-data').find('div.rev1').html() + '</th>' +
+	        '<th class="diff_next"></th>' +
+	        '<th colspan="2" class="diff_header">' + $('div.revisions-data').find('div.rev2').html() + '</th>' + 
+	        '</tr></thead>');
+	     });
+	     </script>
+    </div>
+    <div py:otherwise="" py:strip="">
+        De momento no es posible comparar revisiones de archivos binarios.
+    </div>
+     
+    </py:choose>
+     
+</div>

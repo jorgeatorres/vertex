@@ -1,0 +1,28 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     id="editing-area-${file.id}">
+     
+    <div class="editing-area-tabs">
+        <ul id="_eamenu" class="hlist tabs clearfix">
+            <li><a href="${tg.url('/editor/editor/%s' % file.id)}" rel="editor_edit">Edición</a></li>
+            <li><a href="${tg.url('/files/revisions/%s' % file.id)}" rel="editor_revisions">Historia</a></li>
+        </ul>
+    </div>
+    
+    <div id="editing-area-tab-content"></div>
+
+    <script type="text/javascript">
+    $(function(){
+        $('ul#_eamenu li a').click(function(){
+            $('div#editing-area-tab-content').load($(this).attr('href'));
+            $('ul#_eamenu li').removeClass('active');
+            $(this).parent('li').addClass('active');
+            return false;
+        });
+
+        $('ul#_eamenu li a:first').click();
+    });
+    </script>
+
+</div>

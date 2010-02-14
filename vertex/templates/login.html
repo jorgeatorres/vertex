@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="master.html" />
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+  <title>verTeX</title>
+</head>
+
+<body id="pg_login">
+
+	<div id="loginform">
+		<form action="${tg.url('/login_handler', came_from = came_from.encode('utf-8'), __logins = login_counter.encode('utf-8'))}" method="POST" class="loginfields">
+		    <h2>verTeX login</h2>
+		    <label for="login">Correo electrónico:</label><br/>
+		    <input type="text" id="login" name="login" class="text" /><br/>
+		    <label for="password">Contrase&ntilde;a:</label><br/>
+		    <input type="password" id="password" name="password" class="text" /><br/>
+		    <input type="submit" id="submit" value="Login" /><br />
+		    
+		    <a href="">Olvidó su contraseña?</a><br />
+		</form>
+	</div>
+	
+	<div id="aboutvertex" class="clearfix" style="text-align: justify;">
+	   <h3>Qué es verTeX?</h3>
+	    <p>VerTeX es un aplicativo web especialmente preparado para la edición colaborativa de textos científicos en los que se requieren símbolos matemáticos. Está basado en el sistema LaTeX y por tanto proporciona la mejor calidad en materia tipográfica.</p>
+        <p>VerTeX es software libre y por tanto cualquier usuario lo puede copiar, distribuir o modificar. Posee un editor especializado, está organizado con base en proyectos y posee un control de versiones que facilita el trabajo de varias personas en el mismo documento.</p>
+        <p>Para registrarse como usuario o para asistencia técnica se puede dirigir al administrador del servidor, el profesor de la Escuela de Matemáticas Carlos Mejía (<a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#101;&#109;&#101;&#106;&#105;&#97;&#64;&#117;&#110;&#97;&#108;&#46;&#101;&#100;&#117;&#46;&#99;&#111;'>&#99;&#101;&#109;&#101;&#106;&#105;&#97;&#64;&#117;&#110;&#97;&#108;&#46;&#101;&#100;&#117;&#46;&#99;&#111;</a>).</p>
+	</div>
+
+</body>
+</html>

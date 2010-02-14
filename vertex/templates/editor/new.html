@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<h1>Nuevo archivo</h1>
+
+<h2>LaTeX en blanco</h2>
+${c.add_blank_file_form.display(dict(project_id=project.id))}
+
+<h2>Importar archivo</h2>
+${c.import_file_form.display(dict(project_id=project.id))}
+
+</div>

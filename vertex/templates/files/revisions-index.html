@@ -1,0 +1,34 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     class="revisions-list"
+     id="revisions-index">
+
+    <div id="compare-window" style="display: none;">
+    </div>
+
+    <ul>
+        <li py:for="rev in revisions" id="rev${rev.id}">
+            <a href="${tg.url('/editor/editor/%s/%s' % (file.id, rev.id))}">Revisión del ${rev.created_on}</a> por ${rev.user.name}<br/>
+            
+            <div class="compare-radios">
+            Comparar:
+            <input type="radio" id="rev1-${rev.id}" name="rev1" value="${rev.id}" /> <label for="rev1-${rev.id}">desde esta revisión</label>
+            <input type="radio" id="rev2-${rev.id}" name="rev2" value="${rev.id}" /> <label for="rev2-${rev.id}">hacia esta revisión</label>
+            </div>
+            
+            <div class="revision-inline-editor" style="display: none;">
+                <div class="editor"></div>
+            </div>
+
+        </li>
+    </ul>
+    
+    <ul class="hlist action-bar">
+        <li><a href="${tg.url('/editor/compare/')}" class="compare-button"><img src="${tg.url('/images/icons/timeline_marker.png')}" /> <span>Comparar revisiones seleccionadas</span></a></li>
+    </ul>    
+    
+    <script type="text/javascript">$(function(){ vertex.revisioncompare.init(); });</script>
+
+
+</div>

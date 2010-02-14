@@ -1,0 +1,3 @@
+TurboGears2 >= 2.0b7
+Babel >=0.9.4
+ToscaWidgets >= 0.9.1

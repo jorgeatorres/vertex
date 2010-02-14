@@ -1,0 +1,71 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:strip="">
+
+     <div class="editor-toolbars">
+        <ul id="editor-toolbar-main-actions" class="hlist action-bar clearfix">
+            <li py:if="not open_readonly"><a href="#" class="save-button">
+                <img src="${tg.url('/images/icons/disk.png')}" /> <span>Guardar</span>
+            </a></li>
+            <li><a href="#" class="compile-button">
+                <img src="${tg.url('/images/icons/cog_go.png')}" /> <span>Compilar</span>
+            </a></li>
+            <li py:if="not open_readonly" class="spacer"></li>
+            <li py:if="not open_readonly"><a href="#" class="delete-button">
+                <img src="${tg.url('/images/icons/delete.png')}" /> <span>Eliminar</span>
+            </a></li>
+        </ul>
+        <ul py:if="not open_readonly" id="editor-toolbar-editing-actions" class="hlist action-bar">
+            <li><a href="" class="symbols-button"><img src="${tg.url('/images/icons/text_letter_omega.png')}" /></a></li>
+            <li class="spacer"></li>
+            <li><a href="" class="bold-button"><img src="${tg.url('/images/icons/text_bold.png')}" /></a></li>
+            <li><a href="" class="italic-button"><img src="${tg.url('/images/icons/text_italic.png')}" /></a></li>
+            <li><a href="" class="underline-button"><img src="${tg.url('/images/icons/text_underline.png')}" /></a></li>
+            <li class="spacer"></li>
+            <li><a href="" class="align-left-button"><img src="${tg.url('/images/icons/text_align_left.png')}" /></a></li>
+            <li><a href="" class="align-center-button"><img src="${tg.url('/images/icons/text_align_center.png')}" /></a></li>
+            <li><a href="" class="align-right-buttonn"><img src="${tg.url('/images/icons/text_align_right.png')}" /></a></li>
+            <li class="spacer"></li>
+            <li><a href="" class="item-button"><img src="${tg.url('/images/icons/text_list_bullets.png')}" /></a></li>
+            <li><a href="" class="enum-button"><img src="${tg.url('/images/icons/text_list_numbers.png')}" /></a></li>
+        </ul>
+     </div>
+     
+     <div id="editor-latex-symbols" style="display: none; position: fixed;"></div>
+
+     <input type="hidden" id="editor-file-last-revision" value="${file.last_revision.id}" />
+     
+     <py:choose test="open_readonly">
+        <textarea py:when="True" id="editor_area" class="editor-area"  cols="120" rows="30" readonly="">${revision.content}</textarea>
+        <textarea py:otherwise="" id="editor_area" class="editor-area"  cols="120" rows="30">${file.last_revision.content}</textarea>
+     </py:choose>
+     
+     <div id="editor-misc-output" style="display: none;">
+        <div class="header">
+            <h3>Resultados Compilación</h3>
+            
+            <ul class="hlist">
+                <li class="active"><a href="" class="output-link">Salida</a></li>
+                <li><a href="" class="log-link">Log LaTeX</a></li>
+                <li class="close-link"><a href="">[x] cerrar</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <div class="output_content"></div>
+            <div class="log_content" style="display: none;"></div>
+        </div>
+     </div>
+
+    <script type="text/javascript"> 
+    $(function(){
+        vertex.editor.init({file_id: ${file.id},
+                            urls: {save: '${tg.url('/files/save/')}',
+                                   compile: '${tg.url('/editor/compile/')}',
+                                   delete: '${tg.url('/files/delete/')}'}
+                            });
+    });
+    </script>
+
+</div>

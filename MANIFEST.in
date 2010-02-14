@@ -1,0 +1,4 @@
+recursive-include vertex/public *
+include vertex/public/favicon.ico
+recursive-include vertex/i18n *
+recursive-include vertex/templates *

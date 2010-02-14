@@ -1,0 +1,45 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:strip="">
+    
+    <ul class="hlist action-bar clearfix">
+        <li py:if="not open_readonly"><a href="${tg.url('/files/revision_content/%s/True' % file.last_revision.id)}" class="download-button">
+            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>Descargar</span>
+            </a></li>
+        <li py:if="open_readonly"><a href="${tg.url('/files/revision_content/%s/True' % revision.id)}" class="download-button">
+            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>Descargar</span>
+            </a></li>            
+        <li py:if="not open_readonly" class="spacer"></li>    
+        <li py:if="not open_readonly" ><a href="${tg.url('/files/delete/%s' % file.id)}" class="delete-button">
+            <img src="${tg.url('/images/icons/delete.png')}" /> <span>Eliminar</span>
+            </a></li>
+    </ul>    
+    
+    <h3>Datos archivo</h3>
+    <dl class="file-info">
+        <dt>Nombre de archivo:</dt>
+        <dd>${file.filename}</dd>
+        <dt>Tipo:</dt>
+        <dd>${file.content_type}</dd>
+        <dt>Tamaño:</dt>
+        <dd py:if="open_readonly">${len(revision.content_binary)} bytes</dd>
+        <dd py:if="not open_readonly">${len(file.last_revision.content_binary)} bytes</dd>
+    </dl>
+    
+    <h3>Previsualización</h3>
+    <div class="file-preview">
+        <py:choose test="file.content_type.startswith('image')">
+            <div py:when="True" py:strip="">
+                <img py:if="open_readonly" src="${tg.url('/files/revision_content/%s' % revision.id)}" />
+                <img py:if="not open_readonly" src="${tg.url('/files/revision_content/%s' % file.last_revision.id)}" />            
+            </div>
+            <span py:otherwise="" strip="">Este tipo de archivo no puede ser previsualizado.</span>
+        </py:choose>
+    </div>
+    
+    <div py:if="not open_readonly" id="upload-new-file-version">
+    ${c.update_file_form.display(dict(file_id=file.id))}
+    </div>
+    
+</div>

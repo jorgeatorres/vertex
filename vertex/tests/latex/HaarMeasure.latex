@@ -1,0 +1,112 @@
+% LaTeX Article Template - using defaults
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[all]{xy}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+
+
+% Set left margin - The default is 1 inch, so the following 
+% command sets a 1.25-inch left margin.
+\setlength{\oddsidemargin}{0.25in}
+
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{6in}
+
+% Set top margin - The default is 1 inch, so the following 
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{-0.25in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{8in}
+
+% Set the beginning of a LaTeX document
+\begin{document}
+
+\title{On the Existence and Uniqueness of Invariant Measures on Locally Compact Groups}         % Enter your title between curly braces
+\author{Simon Rubinstein--Salzedo}        % Enter your name between curly braces
+\date{March 12, 2004}          % Enter your date or \today between curly braces
+\maketitle
+
+\section{Motivation and History}
+
+\noindent One of the most useful properties of $\mathbb{R}^n$ is invariance under a linear transformation. That is, if $a\in\mathbb{R}^n$ and $f$ is any Lebesgue--integrable function, then $$\int_{\mathbb{R}^n} f(x)\;dx=\int_{\mathbb{R}^n} f(y+a)\; dy.$$ Similarly, if we consider the multiplicative group of positive real numbers, $\mathbb{R}^\times_+$, and let $k$ be a positive real number and $f$ a Lebesgue--integrable function, then $$\int_{\mathbb{R}^\times_+} f(x)\; \frac{dx}{x}=\int_{\mathbb{R}^\times_+} f(ky)\; \frac{dy}{y}.$$ \\
+
+\noindent The notion of Haar measure is a generalization of the above two examples. It turns out that in any locally compact group $G$, there exists a measure $\mu$ such that $$\int_G f(x)\; d\mu(x)=\int_G f(gx)\; d\mu(x)$$ for any integrable function $f$ and any $g\in G$. \\ \\
+
+\noindent At some time in the early twentieth century, people started to wonder if there was an invariant measure on all topological groups. The first two people to make significant progress on this problem were Alfr\'ed Haar and John von Neumann in 1933. Haar in 1933 proved that there exists an invariant measure on any separable compact group. Using Haar's result, von Neumann proved the special case of David Hilbert's Fifth Problem for compact locally Euclidean groups. The following year, von Neumann proved the uniqueness of invariant measures. \\ \\
+
+\noindent Ultimately, neither Haar nor von Neumann proved the existence of invariant measures on all locally compact groups. The first one to come up with a full proof was Andr\'e Weil. This proof, however, was criticized for using the Axiom of Choice in the form of Tychonoff's Theorem. Later, Henri Cartan proved the existence of invariant measures on locally compact groups without the Axiom of Choice. Since then, several other people have also proved this theorem.
+
+\section{Definitions}
+
+\noindent {\bf Definition 1} A {\bf topological group} $G$ is a group as well as a topological space with the property that the mapping $(g_1,g_2)\mapsto g_1^{-1}g_2$ is continuous for all $g_1,g_2\in G$. The multiplicative group of positive reals, for example, is a topological group since $(g_1,g_2)\mapsto\frac{g_2}{g_1}$ is continuous due to continuity of multiplication and nonzero division of real numbers. \\ \\
+
+\noindent {\bf Definition 2} A topological space $X$ is said to be {\bf locally compact} if for all $x\in X$, there is a compact set containing a neighborhood of $x$. \\ \\
+
+\noindent {\bf Definition 3} Let $X$ be a topological space, and let $A\subset X$. Then $A$ is {\bf $\boldsymbol{\sigma}$--bounded} if it is possible to find a sequence of compact sets $\{K_n\}_{n=1}^\infty$ with the property that $A\subset\bigcup_{n=1}^\infty K_n$. \\ \\
+
+\noindent {\bf Definition 4} A {\bf left Haar measure} $\mu$ on a topological group $G$ is a Radon measure which is invariant under left translation, i.e. $\mu(gB)=\mu(B)$ for all $g\in G$. A {\bf right Haar measure} $\mu$ on a topological group $G$ is a Radon measure which is invariant under right translation, i.e. $\mu(Bg)=\mu(B)$ for all $g\in G$. \\ \\
+
+\noindent {\bf Definition 5} A {\bf content} $\lambda$ is a set function that acts on the set of compact sets $\mathcal{C}$ that is finite, nonnegative, additive, subadditive, and monotone. A content induces an inner content and an outer measure. The inner content $\lambda_\ast$ is defined by $\lambda_\ast(A)=\sup \{\lambda(K)\mid K\in\mathcal{C}, K\subset A\}$. Let $\mathcal{O}$ denote the set of open sets. The outer measure $\mu_e$ is defined by $\mu_e(A)=\inf\{\lambda_\ast(O)\mid O\in \mathcal{O}, A\subset O\}$. \\ \\
+
+\noindent {\bf Definition 6} If $\mu_e$ is an outer measure, then a set $A$ is said to be {\bf $\boldsymbol{\mu_e}$--measurable} if for all sets $B$, $$\mu_e(B)=\mu_e(A\cap B)+\mu_e(A^c\cap B).$$
+
+\section{Existence and Uniqueness}
+
+\noindent {\bf Theorem 1} On any locally compact group $G$, there exists a nonzero left Haar measure $\mu$, and this Haar measure is unique up to a positive multiplicative constant of proportionality. \\ \\
+
+\noindent {\bf Proof} The proof of this theorem relies on four lemmas. \\ \\
+
+\noindent {\bf Lemma 1} Let $\lambda$ be a content, and let $\lambda_\ast$ and $\mu_e$ be the inner content and outer measure, respectively, induced by $\lambda$. Then for all $O\in\mathcal{O}$ and for all $K\in\mathcal{C}$, $\lambda_\ast(O)=\mu_e(O)$ and $\mu_e(\text{int}(K))\le\lambda(K)\le\mu_e(K)$. \\ \\
+
+\noindent {\bf Proof} For any $O\in\mathcal{O}$, it is clear that $\mu_e(O)\le\lambda_\ast(O)$ since we can pick $O$ as an open superset of $O$ in the definition of $\mu_e$. Now if $O'\in\mathcal{O}$ with $O\subset O'$, then $\lambda_\ast(O)\le\lambda_\ast(O')$. Hence $$\lambda_\ast(O)\le\inf_{O'}\lambda_\ast(O')=\mu_e(O).$$ Therefore $\lambda_\ast(O)=\mu_e(O)$. \\ \\
+
+\noindent Now if $K\in\mathcal{C}$ and $O\in\mathcal{O}$ with $K\subset O$, $\lambda(K)\le\lambda_\ast(O)$. Thus $$\lambda(K)\le\inf_O\lambda_\ast(O)=\mu_e(K).$$ If $K'\in\mathcal{C}$ with $K'\subset\text{int}(K)$, then $\lambda(K')\le\lambda(K)$, so 
+
+\begin{equation*}\mu_e(\text{int}(K))=\lambda_\ast(\text{int}(K))=\sup_{K'}\lambda(K')\le\lambda(K).\tag*{$\blacksquare$}\end{equation*} \\
+
+\noindent {\bf Lemma 2} Let $\lambda$ be a content, and let $\mu_e$ be the outer measure induced by $\lambda$. Then a $\sigma$--bounded set $A$ is measurable with respect to $\mu_e$ if and only if for all $O\in\mathcal{O}$, $\mu_e(A\cap O)+\mu_e(A^c\cap O)\le\mu_e(O)$. \\ \\
+
+\noindent {\bf Proof} Let $\lambda_\ast$ be the inner content induced by $\lambda$, let $B$ be a $\sigma$--bounded set, and let $O\in\mathcal{O}$ satisfying $B\subset O$. Since $$\lambda_\ast(O)=\mu_e(O)\ge\mu(A\cap O)+\mu_e(A^c\cap O)\ge\mu_e(A\cap B)+\mu_e(A^c\cap B),$$ $$\mu_e(B)=\inf_O \lambda_\ast(O)\ge\mu_e(A\cap B)+\mu_e(A^c\cap B).$$ The other direction and the converse follow from the definition of subadditivity and $\mu_e$--measurability. \hspace{\stretch{1}} $\blacksquare$ \\ \\
+
+\noindent {\bf Lemma 3} Let $\mu_e$ be the outer measure induced by a content $\lambda$. Then the measure $\mu$ that satisfies $\mu(A)=\mu_e(A)$ for all Borel sets $A$ is a regular Borel measure. $\mu$ is called the induced measure of $\lambda$. \\ \\
+
+\noindent {\bf Proof} It suffices to show that each $K\in\mathcal{C}$ is $\mu_e$--measurable. By Lemma 2, this would follow from showing that $\mu_e(O)\ge\mu_e(O\cap K)+\mu_e(O\cap K^c)$ for all $O\in\mathcal{O}$. Let $K'\in\mathcal{C}$ be a subset of $O\cap K^c$, and let $\widetilde{K}\in\mathcal{C}$ be a subset of $O\cap K'^c$. Clearly $O\cap K^c\in\mathcal{O}$ and $O\cap K'^c\in\mathcal{O}$. Because $K'\cap\widetilde{K}=\emptyset$ and $K'\cup\widetilde{K}\subset O$, $$\mu_e(O)=\lambda_\ast(O)\ge\lambda(K'\cup \widetilde{K})=\lambda(K')+\lambda(\widetilde{K}).$$ Thus $$\mu_e(O)\ge\lambda(K')+\sup_{\widetilde{K}} \lambda(\widetilde{K})=\lambda(K')+\lambda_\ast(O\cap K'^c)$$ $$\hspace{16mm} =\lambda(K')+\mu_e(O\cap K'^c)\ge\lambda(K')+\mu_e(O\cap K).$$ Therefore, $$\mu_e(O)\ge\mu_e(O\cap K)+\sup_{K'}\lambda(K')=\mu_e(O\cap K)+\lambda_\ast(O\cap K^c)$$ $$\hspace{-18mm}=\lambda(K')=\mu_e(O\cap K)+\mu_e(O\cap K^c).$$ Now it is necessary to show that $\mu(K)$ is finite. To do so, take $L\in\mathcal{C}$ with $K\subset\text{int}(L)$. Then $$\mu(K)=\mu_e(K)\le\mu_e(\text{int}(L))\le\lambda(L)<\infty.$$ Finally, regularity follows from $$\mu(K)=\mu_e(K)=\inf_O\{\lambda_\ast(O)\mid K\subset O, O\in\mathcal{O}\}=\inf_O\{\mu_e(O)\mid K\subset O, O\in\mathcal{O}\}$$ \begin{equation*}\hspace{-28mm}=\inf_O\{\mu(O)\mid K\subset O, O\in\mathcal{O}\}. \tag*{$\blacksquare$} \end{equation*} \\
+
+\noindent {\bf Lemma 4} Let $\Omega$ be a measurable space and let $h:\Omega\to\Omega$ be a homeomorphism. Let $\lambda$ and $\kappa$ be contents on $\Omega$ such that for all $K\in\mathcal{C}$, $\lambda(h(K))=\kappa(K)$. Suppose that $\mu$ and $\nu$ are the induced measures of $\lambda$ and $\kappa$, respectively. Then $\mu(h(A))=\nu(A)$ for any Borel measurable set $A\in\Omega$. \\ \\
+
+\noindent {\bf Proof} Let $\lambda_\ast$ and $\kappa_\ast$ be the inner contents induced by $\lambda$ and $\kappa$, respectively, and let $\mu_e$ and $\nu_e$ be their respective outer measures. If $O\in\mathcal{O}$, then $$\{\kappa(K)\mid K\subset O, K\in\mathcal{C}\}=\{\lambda(h(K))\mid K\subset O, K\in\mathcal{C}\}$$ $$\hspace{58mm}=\{\lambda(A)\mid A=h(K), K\subset O, K\in\mathcal{C}\}$$ $$\hspace{56mm}=\{\lambda(A)\mid h^{-1}(A)\subset O, h^{-1}(A)\in\mathcal{C}\}$$ $$\hspace{44mm}=\{\lambda(A)\mid A\subset h(O), A\in\mathcal{C}\}.$$ Thus $\kappa_\ast(O)=\lambda_\ast(h(O))$. Let $B$ a $\sigma$--bounded set. Then $$\hspace{-20mm}\{\kappa_\ast(O)\mid B\subset O, O\in\mathcal{O}\}=\{\lambda_\ast(h(O))\mid B\subset O, O\in\mathcal{O}\}$$ $$\hspace{39mm}=\{\lambda_\ast(C)\mid C=h(O), B\subset O, O\in\mathcal{O}\}$$ $$\hspace{55mm}=\{\lambda_\ast(C)\mid h^{-1}(C)\mid h^{-1}(C)\subset B, h^{-1}(C)\in\mathcal{O}\}$$ $$\hspace{26mm}=\{\lambda_\ast(C)\mid C\subset h(B), C\in\mathcal{O}\}.$$ Thus $\nu_e(B)=\mu_e(h(B))$. By the result of Lemma 3, if $A$ is any Borel set, then $\mu(h(A))=\nu(A)$. \hspace{\stretch{1}} $\blacksquare$ \\ \\
+
+\noindent Because of Lemma 4, one must simply find a content $\lambda$ on $G$ which is invariant under left translation to demonstrate existence. By Lemma 1, the induced measure of $\lambda$ will be nonzero. \\ \\
+
+\noindent Let $A\subset G$ be a bounded set, and let $B\subset G$ be a set with nonempty interior. Then let $A:B$ denote the lowest positive integer $n$ such that there exists a set $\{g_j\}_{j=1}^n\subset G$ with the property that $A\subset\bigcup_{j=1}^n g_jB$. Now let $A\in\mathcal{C}$ be a set with nonempty interior. Let $\mathcal{N}$ denote the set of all neighborhoods of the identity element of $G$. Fix $O\in\mathcal{N}$. Now define $$\lambda_O(K)=\frac{K:O}{A:O}$$ for $K\in\mathcal{C}$. Clearly $\lambda_O(K)$ satisfies $0\le\lambda_O(K)\le K:A$. $\lambda_O(K)$ clearly satisfies all the properties of a content other than additivity. \\ \\
+
+\noindent For each $K\in\mathcal{C}$, consider the interval $I_K=[0,K:A]$, and let $\Xi=\prod I_K$. By Tychonoff's Theorem, $\Xi$ is compact. $\Xi$ consists of points that are the direct products of functions $\phi$ acting on $\mathcal{C}$ with the property that $0\le\phi(K)\le K:A$. $\lambda_O\in\Xi$ for all $O\in\mathcal{N}$. \\ \\
+
+\noindent Now define $$\Lambda(O)=\{\lambda_{O'}\mid O'\subset O, O'\in\mathcal{N}\}$$ given $O\in\mathcal{N}$. If $\{O_j\}_{j=1}^n\subset\mathcal{N}$, then $$\Lambda\Biggl(\bigcap_{j=1}^n O_j\Biggr)\subset\bigcap_{j=1}^n\Lambda(O_j).$$ Clearly $\Lambda\bigl(\bigcap_{j=1}^n O_j\bigr)$ is nonempty. Since $\Xi$ is compact, there is some point in the intersection of the closures of all the $\Lambda$s $$\lambda\in\bigcap_O\{\overline{\Lambda(O)}\mid O\in\mathcal{N}\}.$$ \\
+
+\noindent It is now necessary to prove that $\lambda$ is in fact a content. For any $K\in\mathcal{C}$, $\lambda(K)$ is finite and nonnegative since $0\le\lambda(K)\le K:A<\infty$. To prove monotonicity and subadditivity, let $\xi_K(\phi)=\phi(K)$. Then $\xi_K$ is a continuous function. Thus if $K_1$ and $K_2$ are compact sets, then $$\Theta=\{\phi\mid\phi(K_1)\le\phi(K_2)\}\subset\Xi$$ is closed. Then let $K_1\subset K_2$ and $O\in\mathcal{N}$. Then $\lambda_O\in\Theta$, and hence $\Lambda(O)\subset\Theta$. Since $\Theta$ is closed, $\lambda\in\overline{\Lambda(O)}\subset\Theta$, which implies that $\lambda$ is monotone and subadditive. \\ \\
+
+\noindent To prove additivity, first note the restricted additivity of $\lambda_O$. Let $gO$ be a left translation of $O$, and fix $K_1,K_2\in\mathcal{C}$ so that $K_1O^{-1}\cap K_2 O^{-1}=0$. If $K_1\cap gO\not= 0$, then $g\in K_1 O^{-1}$, and if $K_2\cap gO\not= \emptyset$, then $g\in K_2 O^{-1}$. Thus there are no left translations of $O$ that do not intersect either $K_1$ or $K_2$, and so $\lambda_O$ has additivity given that $K_1O^{-1}\cap K_2O^{-1}=\emptyset$. Let $K_1,K_2\in\mathcal{C}$ with $K_1\cap K_2=\emptyset$. Then there is some $O\in\mathcal{N}$ satisfying $K_1O^{-1}\cap K_2O^{-1}=\emptyset$. If $O'\in\mathcal{N}$ and $O'\subset O$, then $K_1O'^{-1}\cap K_2 O'^{-1}=\emptyset$ as well. Thus $\lambda_{O'}(K_1\cup K_2)=\lambda_{O'}(K_1)+\lambda_{O'}(K_2)$. Then if $O'\subset O$, $$\lambda_{O'}\in\Theta'=\{\phi\mid\phi(K_1\cup K_2)=\phi(K_1)+\phi(K_2)\}.$$ Thus $\lambda$ is additive. This establishes the existence of a Haar measure on any locally compact group. \\ \\
+
+\noindent To establish uniqueness, let $\mu$ be a left Haar measures, and consider a nonnegative continuous function $f$ on a locally compact group $G$ that is not identically zero. Since $\int_G f\; d\mu>0$, we may assume that $\int_G f\; d\mu=1$. Let us write $$\Psi(g)=\int_G f(xg^{-1})\; d\mu(x),$$ where $g\in G$. Then $\Psi:G\to\mathbb{R}^+$ is a continuous function and also a homomorphism. Now select a continuous function $h$ on $G$ and consider the convolution $$(f\ast h)(g)=\int_G f(x)h(x^{-1}g)\; d\mu(x)=\int_G f(gx)h(x^{-1})\; d\mu(x).$$ By the definition of $\Psi$ and $\int_G f\; d\mu=1$, $$\int_G h(x)\; d\mu(x)=\int_G h(x^{-1})\Psi(x^{-1})\; d\mu(x).$$ A right translation of $h$ gives $$\int_G h(xg^{-1})\; d\mu(x)=\int_G h(x^{-1}g^{-1})\Psi(x^{-1})\; d\mu(x)$$ $$\hspace{46mm} =\Psi(g)\int_G h((gx)^{-1})\Psi((gx)^{-1})\; d\mu(x)$$ $$\hspace{36mm} =\Psi(g) \int_G h(x^{-1})\Psi(x^{-1})\; d\mu(x).$$ Thus $$\Psi(g)=\frac{\int_G h(xg^{-1})\; d\mu(x)}{\int_G h(x)\; d\mu(x)}.$$ \\
+
+\noindent Now let $\upsilon$ and $\phi$ be two continuous functions on $G$, and let $\Psi$ be defined as above. Also, let $\nu$ be another left Haar measure. Then $$\hspace{-32mm}\int_G \upsilon(x)\; d\mu(x)\int_G \phi(y)\; d\nu(y)=\int_G \int_G \upsilon(x)\; d\mu(x) \phi(y)\; d\nu(y)$$ $$\hspace{30mm} = \int_G\int_G \upsilon(xy)\; d\mu(x) \Psi(y)\phi(y)\; d\nu(y)$$ $$\hspace{30mm} =\int_G\int_G\upsilon(xy)\phi(y)\Psi(y)\; d\nu(y)\; d\mu(x)$$ $$\hspace{38mm} = \int_G\int_G \upsilon(y)\phi(x^{-1}y)\Psi(x^{-1}y)\; d\nu(y)\; d\mu(x)$$ $$\hspace{54mm} =\int_G\int_G \phi((y^{-1}x)^{-1})\Psi((y^{-1}x)^{-1})\; d\mu(x) \upsilon(y)\; d\nu(y)$$ $$\hspace{35mm} =\int_G\int_G \phi(x^{-1})\Psi(x^{-1})\; d\mu(x) \upsilon(y)\; d\nu(y)$$ $$\hspace{20mm} =\int_G \phi(x)\; d\mu(x) \int_G \upsilon(y) \; d\nu(y).$$ Thus $\int_G \upsilon\; d\mu\int_G \phi\; d\nu=\int_G \phi\; d\mu\int_G \upsilon\; d\nu$. Now letting $\upsilon$ be a positive continuous function and setting $$c=\frac{\int_G \upsilon \; d\nu}{\int_G \upsilon \; d\mu}$$ gives $\int_G \phi\; d\nu=c\int_G \phi\; d\mu$. \hspace{\stretch{1}} $\blacksquare$
+
+\section{Bibliography}
+
+\begin{enumerate}
+
+\item P. Halmos, {\it Measure Theory}, Springer--Verlag, New York, 1974.
+\item L. Nachbin, {\it The Haar Integral}, D. Van Nostrand Company, Inc., Princeton, New Jersey, 1965.
+
+\end{enumerate}
+
+\end{document}

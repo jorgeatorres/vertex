@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="master.html" />
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+  <title>verTeX / home</title>
+</head>
+
+<body>
+
+<h1>Qué puede hacer en verTeX?</h1>
+
+<ul style="list-style-type: none;">
+    <li>
+        <h3 style="margin-bottom: 0;"><a href="${tg.url('/projects/add/')}">Crear un nuevo proyecto</a></h3>
+        Empiece a editar su próximo artículo ó texto científico de manera colaborativa.
+    </li>
+    <li py:if="projects">
+        <h3 style="margin-bottom: 0;">Revise el estado de sus proyectos</h3>
+        Estos son los proyectos en los que se encuentra involucrado actualmente:<br/><br/>
+        <py:for each="project in projects">
+            &raquo; <a href="${tg.url('/editor/workspace/%s' % project.id)}">${project.title}</a><br/>
+        </py:for>
+    </li>
+</ul>
+
+</body>
+</html>

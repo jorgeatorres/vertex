@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{xy}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\begin{document}
+
+\noindent  {\Large\underline{\textbf{Problem:}}}
+\noindent \ Find all integer solutions to the equation
+$$ \frac{1}{x} + \frac{1}{y} = \frac{1}{z}. $$ \\ \\
+
+\noindent  {\Large\underline{\textbf{Solution:}}}
+\noindent \ We will show that all solutions are of the form:
+$$ \begin{array}{l}
+x = k \cdot a \cdot \left(a + b\right) \\
+y = k \cdot b \cdot \left(a + b\right) \\
+z = k \cdot a \cdot b,
+\end{array} $$
+
+\noindent where $k$, $a$, and $b$ are arbitrary non-zero integers, $a+b\neq0$. \\
+
+\noindent  We can rewrite the given equation as
+$$ z = \frac{xy}{x+y}, $$
+so it suffices to find all pairs of integers $ x, y $ such that $x+y \mid xy$. \\
+ 
+\noindent  \underline{\textbf{Lemma:}} \ Let $r$ and $s$ be relatively prime positive integers.  Then $r\pm s$ and $rs$ are relatively prime. \\
+
+\noindent  \underline{\textbf{Proof:}} \ Suppose not; then there exists an integer $k > 1$ such that $k \mid r\pm s$ and $k \mid rs$.  We have \\  
+
+\noindent  \[ k \mid r \pm s \Rightarrow k \mid r^2 \pm rs \Rightarrow k \mid r^2. \]
+Similarly, $ k \mid s^2. $
+
+Let $p > 1$ be any prime factor of $k$, so that $p \mid r^2$ and $p \mid s^2$.  
+Now simply note that for any positive integer $m$, $ p \nmid m \Rightarrow p \nmid m^2$. 
+Hence, we must have $p \mid r$ and $p \mid s$, which contradicts our assumption that $r$ and $s$ are relatively prime.  So $r \pm s$ and $rs$ must be relatively prime. // \\
+
+Let $x$ and $y$ be integers such that $x+y \mid xy$.  We clearly cannot have $x+y = 0$.
+If $\left|x+y\right| = 1$, then we have the solution sets
+$$ \begin{array}{l}
+x = c \\
+y = -\left(c + 1\right) \\
+z = c\cdot\left(c+1\right)
+\end{array} $$
+and
+$$ \begin{array}{l}
+x = c+1 \\
+y = -c \\
+z = -c\cdot\left(c+1\right),
+\end{array} $$
+where $c$ is an integer, $c \neq 0, 1$.
+
+We now assume $\left|x+y\right| > 1 $.  
+Let $n = \gcd\left(\left|x\right|,\left|y\right|\right)$.  Suppose that $\left|x\right|$ and $\left|y\right|$ are relatively prime.  
+Then by the lemma, $\left|x+y\right|$ and $\left|xy\right|$ are relatively prime, a contradiction, since $x+y \mid xy$ and $\left|x+y\right| > 1 $.
+
+\noindent Hence, $n > 1$.  Choose integers $a, b$ such that $x = na$ and $y = nb$.
+This gives:
+$$ \begin{array}{l}
+\ \  \ \left(na + nb\right) \mid \left(na\right) \cdot \left(nb\right) \\ 
+\Leftrightarrow n \cdot \left(a+b\right) \mid n^2 \cdot a \cdot b \\ 
+\Leftrightarrow a+b \mid n \cdot a \cdot b. 
+\end{array} $$
+Since $n = \gcd\left(\left|x\right|,\left|y\right|\right)$, $\left|a\right|$ and $\left|b\right|$ must be relatively prime.
+So by the lemma, the above holds if and only if $a+b \mid n$.  Put $n = k \cdot \left(a + b\right)$.  This gives the solution set:
+
+$$ \begin{array}{l}
+x = k \cdot a \cdot \left(a + b\right) \\
+y = k \cdot b \cdot \left(a + b\right) \\
+z = k \cdot a \cdot b.
+\end{array} $$
+
+\noindent Finally, note that the previous two solution sets are contained within this one (for the first set, take $k = -1, \ a = c, \ b = -\left(c+1\right)$; for the second set, take $k = 1, \ a = c+1, \ b= -c$).  Hence, this is the entire family of solutions, as desired.
+\noindent   \hspace{\stretch{1}} $\blacksquare$ \\
+
+\noindent \textbf{\textit{$\infty$ Michael Viscardi $\infty$}} \\
+
+\noindent May 20, 2004
+
+\end{document}
