@@ -1,59 +1,68 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
      xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="project-overview-${project.id}" class="project-overview">
+     xmlns:xi="http://www.w3.org/2001/XInclude">
 
-    <h1 py:content="project.title"></h1>
+<xi:include href="workspace.html" />
+
+<body>
+
+    <div id="project-overview-${project.id}" class="project-overview">
     
-    <dl>
-        <dt>Creado en:</dt>
-        <dd>${project.created_on}</dd>
-        <dt>Creador:</dt>
-        <dd>${project.creator.name}</dd>
-        <dt>Descripción:</dt>
-        <dd>${project.description or '-'}</dd>
-        <dt>Miembros:</dt>
-        <dd>
-		    <table>
-		        <tr py:for="member in project.members">
-		            <td py:choose="project.creator == member.user">
-		              <img py:when="True" src="${tg.url('/images/icons/bullet_star.png')}" /> 
-		              <img py:otherwise="" src="${tg.url('/images/icons/bullet_black.png')}"/>
-                    </td>
-		            <td>${member.user.name}<br/><i>${member.user.institution}</i></td>
-		            <td>
-		                <a py:if="tg.request.identity['user'] == project.creator and
-		                          project.creator != member.user"
-		                   href="${tg.url('/projects/members_delete/%s/%s' % (project.id, member.user.user_id))}" class="user_remove_link">
-		                      <img src="${tg.url('/images/icons/user_delete.png')}" /> Remover
-		                   </a>
-		            </td>
-		        </tr>
-		    </table>
-		    <br/>
-		    <div id="invite_project_members">
-		      <a href="#" id="invite_link">+ Invitar más editores</a><br/>
-		      <div class="form" style="display: none;">${c.invite_people_form.display(dict(project_id=project.id))}</div>
-		    </div>
-        </dd>
-    </dl>
-    
-    <script type="text/javascript">
-    $(function(){
-        $('#invite_link').click(function(){
-            $(this).parent().find('div.form').toggle();
-            return false;
-        });
+        <h1 py:content="project.title"></h1>
         
-        $('a.user_remove_link').click(function(){
-            var a = $(this);
-            $.post(a.attr('href'), {}, function(res){
-                vertex.flashmsg(res._msg, res._status);
-                if (res._status == 'ok') a.parents('tr').remove();
-            }, 'json');
-            return false;
+        <dl class="info">
+            <dt>${_('Created on')}</dt>
+            <dd>${project.created_on}</dd>
+            <dt>${_('Author')}</dt>
+            <dd>${project.creator.name}</dd>
+            <dt>${_('Description')}</dt>
+            <dd>${project.description or '-'}</dd>
+            <dt>${_('Editors')}</dt>
+            <dd>
+                <table>
+                    <tr py:for="member in project.members">
+                        <td py:choose="project.creator == member.user">
+                          <img py:when="True" src="${tg.url('/images/icons/bullet_star.png')}" /> 
+                          <img py:otherwise="" src="${tg.url('/images/icons/bullet_black.png')}"/>
+                        </td>
+                        <td>${member.user.name}<br/><i>${member.user.institution}</i></td>
+                        <td>
+                            <a py:if="tg.request.identity['user'] == project.creator and
+                                      project.creator != member.user"
+                               href="${tg.url('/projects/members_delete/%s/%s' % (project.id, member.user.user_id))}" class="user_remove_link">
+                                  <img src="${tg.url('/images/icons/user_delete.png')}" /> ${_('Delete')}
+                               </a>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <div id="invite_project_members">
+                  <a href="#" id="invite_link">+ ${_('Invite other editors...')}</a><br/>
+                  <div class="form" style="display: none;">${c.invite_people_form.display(dict(project_id=project.id))}</div>
+                </div>
+            </dd>
+        </dl>
+        
+        <script type="text/javascript">
+        $(function(){
+            $('#invite_link').click(function(){
+                $(this).parent().find('div.form').toggle();
+                return false;
+            });
+            
+            $('a.user_remove_link').click(function(){
+                var a = $(this);
+                $.post(a.attr('href'), {}, function(res){
+                    vertex.messages.flash(res._msg, res._status);
+                    if (res._status == 'ok') a.parents('tr').remove();
+                }, 'json');
+                return false;
+            });
         });
-    });
-    </script>
+        </script>
+    
+    </div>
 
-</div>
+</body>
+
+</html>

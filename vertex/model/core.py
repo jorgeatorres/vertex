@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from datetime import datetime
 from sqlalchemy import ForeignKey, Column
 from sqlalchemy.orm import relation, backref, synonym
@@ -32,7 +32,7 @@ class ProjectMembership(DeclarativeBase):
     updated_on = Column(DateTime, default=datetime.now, onupdate=datetime.now, nullable=False)
     
     project = relation(Project, backref=backref('members', cascade='all, delete-orphan'))
-    user = relation(User)
+    user = relation(User, backref='memberships')
 
 
 class File(DeclarativeBase):
@@ -41,7 +41,7 @@ class File(DeclarativeBase):
     id = Column(Integer, primary_key=True, autoincrement=True)
     project_id = Column(Integer, ForeignKey('projects.id'), nullable=False)
     filename = Column(Unicode(255), nullable=False)
-    content_type = Column(Unicode(255), nullable=False, default=u'text/x-tex')
+    content_type = Column(Unicode(255), nullable=False, default=u'text/x-latex')
     
     created_on = Column(DateTime, default=datetime.now, nullable=False)
     updated_on = Column(DateTime, default=datetime.now, onupdate=datetime.now, nullable=False)    
@@ -50,7 +50,8 @@ class File(DeclarativeBase):
     
     @property
     def is_binary(self):
-        return self.content_type not in ('text/plain', 'text/x-tex', 'application/x-tex')
+        import tg
+        return self.content_type not in (tg.config.get('vertex_latex_types') + tg.config.get('vertex_text_types'))
     
     @property
     def last_revision(self):

@@ -11,18 +11,18 @@
   <title>verTeX / home</title>
 </head>
 
-<body>
+<body id="home">
 
-<h1>Qué puede hacer en verTeX?</h1>
+<h1>${_('What can you do with verTeX?')}</h1>
 
-<ul style="list-style-type: none;">
+<ul>
     <li>
-        <h3 style="margin-bottom: 0;"><a href="${tg.url('/projects/add/')}">Crear un nuevo proyecto</a></h3>
-        Empiece a editar su próximo artículo ó texto científico de manera colaborativa.
+        <h3 style="margin-bottom: 0;"><a href="${tg.url('/projects/add/')}">${_('Create a new project')}</a></h3>
+        ${_('Start writing your next article and enjoy all of verTeX collaborative capabilities')}.
     </li>
     <li py:if="projects">
-        <h3 style="margin-bottom: 0;">Revise el estado de sus proyectos</h3>
-        Estos son los proyectos en los que se encuentra involucrado actualmente:<br/><br/>
+        <h3 style="margin-bottom: 0;">${_('Check the status of your projects')}</h3>
+        ${_('There are the projects you\'re involved with.')}<br/><br/>
         <py:for each="project in projects">
             &raquo; <a href="${tg.url('/editor/workspace/%s' % project.id)}">${project.title}</a><br/>
         </py:for>

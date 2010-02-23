@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """
 Integration tests for the :mod:`repoze.who`-powered authentication sub-system.
 

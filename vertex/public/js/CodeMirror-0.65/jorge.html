@@ -1,0 +1,115 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script src="js/codemirror.js" type="text/javascript"></script>
+    <title>CodeMirror: LaTeX</title>
+    <link rel="stylesheet" type="text/css" href="css/docs.css"/>
+    <style type="text/css">
+      .CodeMirror-line-numbers {
+        width: 2.2em;
+        color: #aaa;
+        background-color: #eee;
+        text-align: right;
+        padding-right: .3em;
+        font-size: 10pt;
+        font-family: monospace;
+        padding-top: .4em;
+      }
+    </style>
+  </head>
+  <body style="padding: 20px;">
+
+<div style="border: 1px solid black; padding: 0px;">
+<textarea id="code" cols="120" rows="30">
+
+\documentclass[12pt]{letter}
+\usepackage{enumerate,amsmath,amsfonts}
+\usepackage[spanish]{babel}
+\setlength\topmargin{-0.5in}
+\setlength\textwidth{6.5in}
+\setlength\textheight{8.5in}
+\setlength\oddsidemargin{0in}
+\setlength\evensidemargin{0in}
+
+\begin{document}
+
+\begin{center}
+  UNIVERSIDAD NACIONAL DE COLOMBIA - MEDELL\'IN
+  
+  ESCUELA DE MATEM\'ATICAS
+  
+  MATEM\'ATICAS ESPECIALES - Sem. 2009-02
+  
+  TALLER \#10
+\end{center}
+
+\textbf{Temas:} Potencias y % ra\'ices de n\'umeros complejos. Analiticidad. Funciones elementales.
+
+% No me acuerdo de nada
+% de lo que debia hacer
+
+\textbf{Fecha:} 9 y 11 de noviembre de 2009.
+\medskip
+
+\begin{enumerate}
+  \item Hallar todas las soluciones complejas de la ecuaci\'on $(e^z - 1 -
+  i)^2 = 2 i$.
+  
+  \item Sea $a = 2 (\sin (\pi / 12) + i \cos (\pi / 12))$. Encontrar todos los
+  valores de $a^i$.
+  
+  \item Demostrar que $\cosh (z_1 + z_2) = \cosh (z_1) \cosh (z_2) + \sinh
+  (z_1) \sinh (z_2)$.
+  
+  \item Demostrar que si $f = u + i v$ es anal\'itica y $u$ es constante
+  entonces $f$ es constante.
+  
+  \item Sea $f (x, y) = \left( \frac{x^3}{3} + \frac{y^3}{3} \right) + i
+  \left( - \frac{y^3}{3} + y + \frac{x^3}{3} - x \right)$. Hallar los puntos
+  $z = x + i y \in \mathbb{C}$ donde exista la derivada $f' (z)$.
+  Hallar, si existe, el valor de $f' (i)$.
+  
+  \item Encontrar una funci\'on anal\'itica $f (z) = u (x, y) + i v (x, y)$
+  tal que
+  \begin{enumerate}[a)]
+    \item $u (x, y) = \cos x \cosh y$.
+    
+    \item $v (x, y) = y / (x^2 + y^2)$.
+  \end{enumerate}
+  
+  \item Es arm\'onica la funci\'on $u (x, y) = x^3 - 3 x y^2$? En caso
+  afirmativo, encontrar una funci\'on anal\'{\i}tica de la forma $f = u + i v$.
+  
+  \item Encontrar y graficar la imagen de la regi\'on $|z| &lt; 1, z \neq 0$ bajo
+  el mapeo \mbox{$w = f (z) = 1 / z$}.
+  
+  \item Encontrar y graficar la imagen de las siguientes regiones bajo el
+  mapeo $w = f (z) = e^z$:
+  \begin{enumerate}[a)]
+    \item $x \leq 1, |y| \leq \pi$.
+    
+    \item $x > 1 / 2$, $0 &lt; y &lt; \pi$.
+  \end{enumerate}
+\end{enumerate}
+
+\thispagestyle{empty}
+
+
+\end{document}
+
+
+
+</textarea>
+</div>
+
+<script type="text/javascript">
+  var editor = CodeMirror.fromTextArea('code', {
+    height: "750px",
+    parserfile: "../contrib/latex/parselatex.js",
+    stylesheet: "css/xmlcolors.css",
+    path: "js/",
+    continuousScanning: 500,
+    lineNumbers: true
+  });
+</script>
+  </body>
+</html>

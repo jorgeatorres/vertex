@@ -3,38 +3,38 @@
      xmlns:xi="http://www.w3.org/2001/XInclude"
      py:strip="">
     
-    <ul class="hlist action-bar clearfix">
+    <ul id="editor-binary-actions" class="hlist action-bar clearfix">
         <li py:if="not open_readonly"><a href="${tg.url('/files/revision_content/%s/True' % file.last_revision.id)}" class="download-button">
-            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>Descargar</span>
+            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>${_('Download')}</span>
             </a></li>
         <li py:if="open_readonly"><a href="${tg.url('/files/revision_content/%s/True' % revision.id)}" class="download-button">
-            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>Descargar</span>
+            <img src="${tg.url('/images/icons/drive_go.png')}" /> <span>${_('Download')}</span>
             </a></li>            
         <li py:if="not open_readonly" class="spacer"></li>    
         <li py:if="not open_readonly" ><a href="${tg.url('/files/delete/%s' % file.id)}" class="delete-button">
-            <img src="${tg.url('/images/icons/delete.png')}" /> <span>Eliminar</span>
+            <img src="${tg.url('/images/icons/delete.png')}" /> <span>${_('Delete')}</span>
             </a></li>
     </ul>    
     
-    <h3>Datos archivo</h3>
-    <dl class="file-info">
-        <dt>Nombre de archivo:</dt>
+    <h3>${_('File info')}</h3>
+    <dl class="info">
+        <dt>${_('Filename')}</dt>
         <dd>${file.filename}</dd>
-        <dt>Tipo:</dt>
+        <dt>${_('Type')}</dt>
         <dd>${file.content_type}</dd>
-        <dt>Tamaño:</dt>
+        <dt>${_('Size')}</dt>
         <dd py:if="open_readonly">${len(revision.content_binary)} bytes</dd>
         <dd py:if="not open_readonly">${len(file.last_revision.content_binary)} bytes</dd>
     </dl>
     
-    <h3>Previsualización</h3>
+    <h3>Preview</h3>
     <div class="file-preview">
         <py:choose test="file.content_type.startswith('image')">
             <div py:when="True" py:strip="">
                 <img py:if="open_readonly" src="${tg.url('/files/revision_content/%s' % revision.id)}" />
                 <img py:if="not open_readonly" src="${tg.url('/files/revision_content/%s' % file.last_revision.id)}" />            
             </div>
-            <span py:otherwise="" strip="">Este tipo de archivo no puede ser previsualizado.</span>
+            <span py:otherwise="" strip="">${_('Preview is not available for this file.')}</span>
         </py:choose>
     </div>
     

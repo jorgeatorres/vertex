@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude" py:strip="">
+
+<py:match path="body" once="True">      
+<body py:attrs="select('@*')">
+
+	<div class="editor-workspace">
+	
+	    <div class="workspace-sidebar">
+	        <xi:include href="project-sidebar.html" />
+	    </div>
+	
+	    <div class="workspace-editing-area">
+	    ${select('*|text()')}
+	    </div>
+
+	</div>
+    
+</body>
+</py:match>
+
+<xi:include href="../master.html" />
+
+</html>

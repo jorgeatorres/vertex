@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import logging, os, subprocess
 
 log = logging.getLogger(__name__)

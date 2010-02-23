@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """
 Global configuration file for TG2-specific settings in vertex.
 
@@ -60,3 +60,7 @@ base_config.sa_auth.post_login_url = '/post_login'
 base_config.sa_auth.post_logout_url = '/post_logout'
 
 base_config.sa_auth.cookie_secret = "mysupersecret" 
+
+base_config.vertex_text_types = ['text/plain']
+base_config.vertex_latex_types = ['text/x-tex', 'text/x-latex',
+                                  'application/x-tex', 'application/x-latex']

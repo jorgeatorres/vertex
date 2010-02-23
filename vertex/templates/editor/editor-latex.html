@@ -5,19 +5,29 @@
 
      <div class="editor-toolbars">
         <ul id="editor-toolbar-main-actions" class="hlist action-bar clearfix">
-            <li py:if="not open_readonly"><a href="#" class="save-button">
-                <img src="${tg.url('/images/icons/disk.png')}" /> <span>Guardar</span>
-            </a></li>
-            <li><a href="#" class="compile-button">
-                <img src="${tg.url('/images/icons/cog_go.png')}" /> <span>Compilar</span>
-            </a></li>
+            <li py:if="not open_readonly">
+	            <a href="${tg.url('/files/save/')}" class="save-button">
+	                <img src="${tg.url('/images/icons/disk.png')}" /> <span>${_('Save')}</span>
+	            </a>
+            </li>
+            <li>
+	            <a href="${tg.url('/editor/compile/')}" class="compile-button">
+	                <img src="${tg.url('/images/icons/cog_go.png')}" /> <span>${_('Compile')}</span>
+	            </a>
+            </li>
             <li py:if="not open_readonly" class="spacer"></li>
-            <li py:if="not open_readonly"><a href="#" class="delete-button">
-                <img src="${tg.url('/images/icons/delete.png')}" /> <span>Eliminar</span>
-            </a></li>
+            <li py:if="not open_readonly">
+	            <a href="${tg.url('/files/delete/')}" class="delete-button">
+	                <img src="${tg.url('/images/icons/delete.png')}" /> <span>${_('Delete')}</span>
+	            </a>
+            </li>
         </ul>
-        <ul py:if="not open_readonly" id="editor-toolbar-editing-actions" class="hlist action-bar">
-            <li><a href="" class="symbols-button"><img src="${tg.url('/images/icons/text_letter_omega.png')}" /></a></li>
+        <ul py:if="not open_readonly" id="editor-toolbar-editing-actions" class="hlist action-bar clearfix">
+            <li>
+                <a href="${tg.url('/editor/latex_symbols/')}" class="symbols-button">
+                <img src="${tg.url('/images/icons/text_letter_omega.png')}" />
+                </a>
+            </li>
             <li class="spacer"></li>
             <li><a href="" class="bold-button"><img src="${tg.url('/images/icons/text_bold.png')}" /></a></li>
             <li><a href="" class="italic-button"><img src="${tg.url('/images/icons/text_italic.png')}" /></a></li>
@@ -33,22 +43,24 @@
      </div>
      
      <div id="editor-latex-symbols" style="display: none; position: fixed;"></div>
-
+     <input type="hidden" id="editor-file-id" value="${file.id}" />
      <input type="hidden" id="editor-file-last-revision" value="${file.last_revision.id}" />
      
-     <py:choose test="open_readonly">
-        <textarea py:when="True" id="editor_area" class="editor-area"  cols="120" rows="30" readonly="">${revision.content}</textarea>
-        <textarea py:otherwise="" id="editor_area" class="editor-area"  cols="120" rows="30">${file.last_revision.content}</textarea>
-     </py:choose>
+     <div id="editor_area_wrapper">
+	     <py:choose test="open_readonly">
+	        <textarea py:when="True" id="editor_area" class="editor-area"  cols="120" rows="30" readonly="">${revision.content}</textarea>
+	        <textarea py:otherwise="" id="editor_area" class="editor-area"  cols="120" rows="30">${file.last_revision.content}</textarea>
+	     </py:choose>
+     </div>
      
      <div id="editor-misc-output" style="display: none;">
         <div class="header">
-            <h3>Resultados Compilación</h3>
+            <h3>Compilation Results</h3>
             
             <ul class="hlist">
-                <li class="active"><a href="" class="output-link">Salida</a></li>
-                <li><a href="" class="log-link">Log LaTeX</a></li>
-                <li class="close-link"><a href="">[x] cerrar</a></li>
+                <li class="active"><a href="" class="output-link">Output</a></li>
+                <li><a href="" class="log-link">LaTeX log</a></li>
+                <li class="close-link"><a href="">[x] close</a></li>
             </ul>
         </div>
         
@@ -57,15 +69,5 @@
             <div class="log_content" style="display: none;"></div>
         </div>
      </div>
-
-    <script type="text/javascript"> 
-    $(function(){
-        vertex.editor.init({file_id: ${file.id},
-                            urls: {save: '${tg.url('/files/save/')}',
-                                   compile: '${tg.url('/editor/compile/')}',
-                                   delete: '${tg.url('/files/delete/')}'}
-                            });
-    });
-    </script>
 
 </div>

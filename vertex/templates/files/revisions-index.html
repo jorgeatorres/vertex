@@ -1,34 +1,51 @@
-<div xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
      xmlns:py="http://genshi.edgewall.org/"
-     xmlns:xi="http://www.w3.org/2001/XInclude"
-     class="revisions-list"
-     id="revisions-index">
+     xmlns:xi="http://www.w3.org/2001/XInclude" py:with="project =  file.project;">
+     
+<xi:include href="../projects/workspace.html" />
 
-    <div id="compare-window" style="display: none;">
-    </div>
-
-    <ul>
-        <li py:for="rev in revisions" id="rev${rev.id}">
-            <a href="${tg.url('/editor/editor/%s/%s' % (file.id, rev.id))}">Revisión del ${rev.created_on}</a> por ${rev.user.name}<br/>
-            
-            <div class="compare-radios">
-            Comparar:
-            <input type="radio" id="rev1-${rev.id}" name="rev1" value="${rev.id}" /> <label for="rev1-${rev.id}">desde esta revisión</label>
-            <input type="radio" id="rev2-${rev.id}" name="rev2" value="${rev.id}" /> <label for="rev2-${rev.id}">hacia esta revisión</label>
-            </div>
-            
-            <div class="revision-inline-editor" style="display: none;">
-                <div class="editor"></div>
-            </div>
-
-        </li>
-    </ul>
+<body id="revisions-index">
     
-    <ul class="hlist action-bar">
-        <li><a href="${tg.url('/editor/compare/')}" class="compare-button"><img src="${tg.url('/images/icons/timeline_marker.png')}" /> <span>Comparar revisiones seleccionadas</span></a></li>
-    </ul>    
-    
-    <script type="text/javascript">$(function(){ vertex.revisioncompare.init(); });</script>
+    <div id="editing-area-${file.id}">
 
+        <div class="editing-area-tabs">
+            <ul id="_eamenu" class="hlist tabs clearfix">
+                <li><a href="${tg.url('/editor/edit/%s' % file.id)}">${_('Editor')}</a></li>
+                <li class="active"><a href="${tg.url('/files/revisions/%s' % file.id)}">${_('File History')}</a></li>
+            </ul>
+        </div>
 
-</div>
+    <div id="editing-area-tab-content">
+
+	<div class="revisions-list">
+	
+	    <div id="compare-window" style="display: none;">
+	    </div>
+	
+	    <ul>
+	        <li py:for="rev in revisions" id="rev${rev.id}">
+	            <a href="${tg.url('/editor/edit/%s/%s' % (file.id, rev.id))}">${_('Revision from %s' % rev.created_on)}</a> ${_('by %s' % rev.user.name)}<br/>
+	            
+	            <div class="compare-radios">
+	            ${_('Compare')}:
+	            <input type="radio" id="rev1-${rev.id}" name="rev1" value="${rev.id}" /> <label for="rev1-${rev.id}">${_('from this revision')}</label>
+	            <input type="radio" id="rev2-${rev.id}" name="rev2" value="${rev.id}" /> <label for="rev2-${rev.id}">${_('to this revision')}</label>
+	            </div>
+	            
+	            <div class="revision-inline-editor" style="display: none;">
+	                <div class="editor"></div>
+	            </div>
+	
+	        </li>
+	    </ul>
+	</div>
+	
+        <ul class="hlist action-bar">
+            <li><a href="${tg.url('/editor/compare/')}" class="compare-button"><img src="${tg.url('/images/icons/timeline_marker.png')}" /> <span>${_('Compare selected revisions')}</span></a></li>
+        </ul>
+	
+	</div>
+	
+	</div>
+</body>
+</html>

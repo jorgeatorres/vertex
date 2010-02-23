@@ -1,0 +1,22 @@
+.editbox {
+    font-family: monospace;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+
+.editbox span.latex-comment {
+    color: #999988;
+}
+
+.editbox span.latex-command {
+    color: #007020;
+}
+
+.editbox span.latex-delimiter {
+    color: #60A0B0;
+}
+
+.editbox span.latex-keyword {
+    color: red;
+}

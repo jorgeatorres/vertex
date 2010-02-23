@@ -1,0 +1,36 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     class="project-sidebar"
+     id="project-sidebar-${project.id}">
+
+    <b style="text-transform: uppercase; font-size: 12px;">${project.title}</b>
+    
+    <ul id="project-sidebar-actions" class="hlist action-bar clearfix">
+        <li>
+            <a href="${tg.url('/editor/new/%s' % project.id)}">
+            <img src="${tg.url('/images/icons/page_add.png')}" /> <span>${_('New File...')}</span>
+            </a>
+        </li>
+        <li>
+            <a href="${tg.url('/projects/settings/%s' % project.id)}">
+                <img src="${tg.url('/images/icons/wrench.png')}" /> <span>${_('Project Settings')}</span></a>
+        </li>
+    </ul>
+
+    <ul class="project-file-list">
+        <li py:if="not project.files">
+            ${_('There are no files in this project yet.')}
+        </li>
+        <li py:for="f in project.files" py:attrs="{'class': 'active' if defined('file') and file.id == f.id else ''}">
+            <py:choose test="f.content_type.startswith('image')">
+                <img py:when="True" src="${tg.url('/images/icons/picture.png')}" />
+                <img py:otherwise="" src="${tg.url('/images/icons/page_white_text.png')}" />
+            </py:choose>
+            <a href="${tg.url('/editor/edit/%s' % f.id)}">${f.filename}</a>
+            
+        </li>
+    </ul>
+    
+
+</div>

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """Test suite for the TG app's models"""
 from nose.tools import eq_
 

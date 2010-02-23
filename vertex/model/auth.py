@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import os, sys, datetime
 from datetime import datetime
 import sys

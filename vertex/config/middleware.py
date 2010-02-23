@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """WSGI middleware initialization for the vertex application."""
 
 from vertex.config.app_cfg import base_config

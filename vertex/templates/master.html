@@ -1,50 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:py="http://genshi.edgewall.org/"
-      xmlns:xi="http://www.w3.org/2001/XInclude"
-      py:strip="">
-<head py:match="head" py:attrs="select('@*')">
+      xmlns:xi="http://www.w3.org/2001/XInclude" py:strip="">
+<head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
     <title py:replace="''"></title>
     <link rel="stylesheet" type="text/css" media="screen" href="${tg.url('/css/style.css')}" />
-    <script type="text/javascript" src="${tg.url('/js/jquery-1.3.2.min.js')}" />
-    <script type="text/javascript" src="${tg.url('/js/jquery.form.js')}" />
-    <script type="text/javascript" src="${tg.url('/js/vertex.js')}" />
-    <script type="text/javascript" src="${tg.url('/js/editarea_0_8_1_1/edit_area/edit_area_full.js')}"></script>
-    <meta py:replace="select('*')"/>
+    <script type="text/javascript" src="${tg.url('/js/jquery-1.3.2.min.js')}"></script>
+    <script type="text/javascript" src="${tg.url('/js/jquery.form.js')}"></script>
+    <script type="text/javascript" src="${tg.url('/js/vertex.js')}"></script>
+    <script type="text/javascript" src="${tg.url('/js/vertex-plugins.js')}"></script>
+    <script type="text/javascript" src="${tg.url('/js/CodeMirror-0.65/js/codemirror.js')}"></script>    
+    <meta py:match="head" py:replace="select('*')"/>
 </head>
 
 <body py:match="body" py:attrs="select('@*')">
 
-<div id="wrapper">
+	<div id="wrapper">
+	
+	    <div id="top" py:if="tg.request['identity']">
+	       <span class="username">
+	           <b py:content="tg.request['identity'].user.user_name"></b>
+           </span>
+	    
+	        <ul id="menu">
+	            <li>
+	                <a href="${tg.url('/')}">${_('Home')}</a>
+	            </li>
+	            <li>
+	                <a href="" class="projects-menu-link">${_('Projects')} ▾</a> 
+	                <div class="projects-menu-list" style="display: none;">
+	                    <ul>
+	                        <li>
+	                            <a href="${tg.url('/projects/add/')}">${_('Create a new project...')}</a>
+	                        </li>
+	                        <li py:for="pm in tg.request['identity'].user.memberships">
+	                            <a href="${tg.url('/projects/view/%d' % pm.project.id)}">${pm.project.title}</a>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </li>
+	            <li>
+	                <a href="${tg.url('/profile_edit')}">${_('My Profile')}</a>
+	            </li>
+	            <li>
+	                <a href="${tg.url('/help')}">${_('Help')}</a>
+	            </li>
+	            <li>
+	                <a href="${tg.url('/logout_handler')}">${_('Sign out')} [x]</a>
+	            </li>
+	        </ul>
+	    </div>
+	
+	    <py:with vars="flash=tg.flash_obj.render('flash', use_js=False)">
+	        <div py:if="flash" py:content="XML(flash)" />
+	    </py:with>
+	
+	    <div id="content">
+	        <div py:replace="select('*|text()')"/>
+	    </div>
+	    
+	</div>
 
-    <div id="top" py:if="tg.request['identity']">
-        <ul id="menu">
-            <li><b py:content="tg.request['identity'].user.user_name"></b></li>
-            <li><a href="${tg.url('/')}">Inicio</a></li>
-            <li>
-                <select id="project-selector">
-                    <option selected="-1"></option>
-                    <option value="0">-- Nuevo proyecto --</option>
-                </select>
-            </li>
-            <li><a href="${tg.url('/profile_edit')}">Perfil</a></li>
-            <li><a href="${tg.url('/help')}">Ayuda</a></li>
-            <li><a href="${tg.url('/logout_handler')}">Salir [x]</a></li>
-        </ul>
+    <div id="footer">
+        &copy; 2010. The <a href="http://posmat.medellin.unal.edu.co/vertex/" target="_blank">verTeX</a> authors.
     </div>
-
-    <py:with vars="flash=tg.flash_obj.render('flash', use_js=False)">
-        <div py:if="flash" py:content="XML(flash)" />
-    </py:with>
-
-
-    <div id="content">
-        <div py:replace="select('*|text()')"/>
-    </div>
-    
-</div>
 
 </body>
 </html>

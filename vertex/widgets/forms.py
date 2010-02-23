@@ -1,58 +1,54 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
+import json
+from pylons.i18n import ugettext as _, lazy_ugettext as l_
+
 from tw.jquery import js_function, js_callback
 from tw.forms import TableForm, TextField, TextArea, HiddenField, Spacer, \
                      FileField
 from tw.forms.validators import UnicodeString, FieldStorageUploadConverter
 
+
 class AjaxForm(TableForm):
-    params = ['id', 'target', 'beforeSubmit', 'action',
-              'type', 'dataType', 'clearForm', 'resetForm']
-
-    target = ''
-    beforeSubmit = ''
-    type = 'POST'
-    dataType = 'json'
-    clear = False
-    resetForm = False
-
+    params = ['id', 'action', 'clearForm', 'resetForm', 'disableSubmit',
+              'submitAltText', 'callback']
     template = "genshi:vertex.widgets.templates.ajaxform"
-    javascript = []
-    include_dynamic_js_calls = True
+    
+    clearForm = True # TODO: implement this!
+    resetForm = True
+    disableSubmit = True
+    submitAltText = None
+    callback = None
 
     def update_params(self, d):
         super(AjaxForm, self).update_params(d)
         if not getattr(d, "id", None):
             raise ValueError("AjaxForm is supposed to have an id")
-
-#        options = dict(
-#            target=('#%s' % self.target),
-#            beforeSubmit=self.beforeSubmit,
-#            success=js_callback('function(r,s) { vertex.forms.handle_form_basic("%s", r); }' % d.id),
-#            url=self.action,
-#            type=self.type,
-#            dataType=self.dataType,
-#            clearForm=self.clearForm,
-#            resetForm=self.resetForm)
-#
-#        call = js_function('$("#%s").ajaxForm' % d.id)(options)
-#        self.add_call(call)
+        d['ajaxconf'] = json.dumps({'id': d['id'],
+                                    'action': d['action'],
+                                    'clearForm': self.clearForm,
+                                    'resetForm': self.resetForm,
+                                    'disableSubmit': self.disableSubmit,
+                                    'submitAltText': self.submitAltText,
+                                    'callback': self.callback})
 
 class AddBlankFileForm(AjaxForm):
-    fields = [TextField(u'filename', label_text=u'Filename', validator=UnicodeString(not_empty=True,
-                                                                                     strip=True,
-                                                                                     max=255)),
+    fields = [TextField(u'filename', label_text=_('Filename'), help_text=_('.latex'), validator=UnicodeString(not_empty=True,
+                                                                                                      strip=True,
+                                                                                                      max=255)),
               HiddenField(u'project_id')]
-    submit_text = u'Crear'
+    submit_text = _('Create file')
 
 class ImportFileForm(TableForm):
     fields = [FileField(u'file', validator=FieldStorageUploadConverter(not_empty=True)),
               HiddenField(u'project_id')]
-    submit_text = u'Importar'
+    submit_text = _('Import file')
     
 class UpdateFileForm(TableForm):
-    fields = [FileField(u'file', validator=FieldStorageUploadConverter(not_empty=True)),
+    fields = [FileField(u'file',
+                        help_text=_('Upload a new version of this file'),
+                        validator=FieldStorageUploadConverter(not_empty=True)),
               HiddenField(u'file_id')]
-    submit_text = u'Actualizar'
+    submit_text = _('Update file')
     
 class AddProjectForm(AjaxForm):
     fields = [TextField(u'title', validator=UnicodeString(not_empty=True, strip=True,
@@ -61,15 +57,15 @@ class AddProjectForm(AjaxForm):
     submit_text = u'Create'
     
 class ProfileEditForm(AjaxForm):
-    fields = [TextField(u'email_address', label_text=u'Correo electrónico'),
+    fields = [TextField(u'email_address', label_text=_('E-mail')),
               Spacer(),
-              TextField(u'institution')]
-    submit_text = u'Guardar'
+              TextField(u'institution', label_text=_('Institution'))]
+    submit_text = _('Update profile')
     
 class InvitePeopleForm(AjaxForm):
-    fields = [TextArea(u'emails', label_text=u'Correos electrónicos',
+    fields = [TextArea(u'emails', label_text=_('E-mails'), help_text=_('Separate distinct e-mails with a comma'),
                        validator=UnicodeString(not_empty=True, strip=True)), HiddenField('project_id')]
-    submit_text = u'Invitar'
+    submit_text = _('Invite')
     
    
 add_blank_file_form = AddBlankFileForm('add_blank_file_form', action='/files/new')
@@ -85,5 +81,4 @@ invite_people_form = InvitePeopleForm('invite_people_form',
 profile_edit_form = ProfileEditForm('profile_edit_form',
                                     action=u'/profile_edit_do',
                                     clearForm=False,
-                                    resetForm=False,
-                                    success=js_callback('vertex.forms.handle_form'))
+                                    resetForm=False)

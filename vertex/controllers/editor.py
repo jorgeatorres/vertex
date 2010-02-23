@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
-from tg import expose, url, response, flash, tmpl_context
+# coding: utf-8
+from pylons.i18n import ugettext as _, lazy_ugettext as l_
+from tg import expose, url, request, response, flash, tmpl_context, override_template
 from tg.controllers import CUSTOM_CONTENT_TYPE
 from vertex.model import DBSession, Project, File, LaTeXCompileRun, \
                              LaTeXSymbolGroup, LaTeXSymbol
@@ -16,24 +17,13 @@ class EditorController(object):
         tmpl_context.import_file_form = import_file_form
         return dict(project=project)
 
-    @expose('vertex.templates.editor.workspace')
-    def workspace(self, pid):
-        project = DBSession.query(Project).filter_by(id=pid).one()
-        return dict(project=project)
-        
-    @expose('vertex.templates.editor.project-sidebar')
-    def project_sidebar(self, pid):
-        project = DBSession.query(Project).filter_by(id=pid).one()
-        return dict(project=project)
-        
     @expose('vertex.templates.editor.edit')
-    def edit(self, id):
+    def edit(self, id, revid=None):
         file = DBSession.query(File).filter_by(id=id).one()
-        return dict(file=file)
-    
-    @expose('vertex.templates.editor.editor')
-    def editor(self, id, revid=None):
-        file = DBSession.query(File).filter_by(id=id).one()
+        
+        if request.is_xhr:
+            override_template(self.edit, 'genshi:vertex.templates.editor.edit-comparing')
+        
         revision = None
         
         if revid is not None:
@@ -42,8 +32,8 @@ class EditorController(object):
         if file.is_binary:
             tmpl_context.update_file_form = update_file_form
         
-        return dict(file=file, revision=revision)
-
+        return {'file': file, 'revision': revision}
+    
     @expose('vertex.templates.editor.compare')
     def compare(self, rev1, rev2):
         rev1 = DBSession.query(FileRevision).filter_by(id=rev1).one()
@@ -80,7 +70,7 @@ class EditorController(object):
         if run.compile():
             DBSession.add(run)
             DBSession.flush()
-            return dict(_msg=u'El archivo fue compilado exitosamente.',
+            return dict(_msg=_('The file compiled successfully.'),
                         _status=u'ok',
                         run_id=run.id,
                         pdf_url=url('/files/download/%s' % run.id),
@@ -88,5 +78,6 @@ class EditorController(object):
                         dvi_url=url('/files/download/%s/dvi' % run.id),                        
                         latex_log=run.latex_log)
         else:
-            return dict(_msg=u'El archivo no pudo ser compilado por errores en el código. Revise el log para obtener más detalles.', _status='error',
+            return dict(_msg=_('The file could not be compiled. Check the log for further details.'),
+                        _status='error',
                         latex_log=run.latex_log)

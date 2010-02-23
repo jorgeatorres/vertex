@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """Fallback controller."""
 
 from vertex.lib.base import BaseController

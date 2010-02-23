@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """Unit test suite for the models of the application."""
 from nose.tools import assert_equals
 

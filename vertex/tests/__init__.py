@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """Unit and functional test suite for vertex."""
 
 from os import path

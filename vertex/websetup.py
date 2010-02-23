@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import os, logging, transaction
 from tg import config
 from vertex.config.environment import load_environment

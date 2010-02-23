@@ -38,15 +38,5 @@
     </table>
     <span py:if="error and not error.error_dict" class="fielderror" py:content="error" />
     
-    <script type="text/javascript">
-    $('#${id}').ajaxForm({'beforeSubmit': function(v,f,o) { vertex.forms.ajaxform_presubmit('${id}'); },
-                         'success': function(r,s){ vertex.forms.handle_form_basic('${id}', r); },
-                         'dataType': 'json',
-                         'clearForm': null,
-                         'resetForm': false,
-                         'url': '${action}',
-                         'type': 'POST',
-                         'target': '#'});
-/*    $("#add_project_form").ajaxForm({"beforeSubmit": "", "success": function(r,s) { vertex.forms.handle_form_basic("add_project_form", r); }, "dataType": "json", "clearForm": null, "resetForm": false, "url": "/projects/add_do", "type": "POST", "target": "#"})*/
-    </script>
+    <script type="text/javascript">vertex.forms.init(${ajaxconf});</script>
 </form>

@@ -1,5 +1,70 @@
-/* TODO - Reset */
+/* YUI reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 13px;
+    font-family: arial, sans-serif;
+    color: #000;
+    background: #fff;
+}
+
+h1 {
+    font-size: 148.5%;
+    color: #99cc00;
+}
+
+h2 {
+    font-size: 120%;
+    color: #696969;
+}
+
+h3 {
+    font-size: 108%;  
+}
+
+
+h1, h2, h3, h4 {
+    margin: 1em 0;
+    font-family: monaco, monospace;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: bold;
+}
+
+blockquote, ul, ol, dl {
+    margin: 1em 1em 1em 25px;
+}
+
+ol li {
+    list-style: decimal outside;
+}
+
+ul li {
+    list-style: disc outside;
+}
+
+p, fieldset, table {
+    margin-bottom: 1em;
+}
+
+table td, table th {
+    font-size: 13px;
+}
+
+p {
+    line-height: 1.4em;
+}
+
 ul, li {
+    margin: 0;
 	padding: 0;
 }
 
@@ -8,33 +73,60 @@ img {
     vertical-align: middle;
 }
 
-html {
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	font-size: 11px;
-	font-family: "Lucida Grande","Lucida Sans Unicode",geneva,verdana,sans-serif;
-	height: 100%;
-}
-
-div#wrapper {
-    width: 1180px;
-}
-
+/* verTeX */
 a {
     text-decoration: none;
     color: #1161d9;
 }
 
 a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
+}
+
+.vDropDownMenu {
+    padding: 5px 10px;
+    background: #fff;
+    border: solid 1px #1161d9;
+}
+
+.vDropDownMenu li {
+    display: block !important;
+    list-style-type: none !important;
+    margin-bottom: 5px !important;
+}
+
+div#wrapper {
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+}
+
+div#footer {
+    display: block;
+    clear: both;
+    font-size: 0.8em;
+    padding: 5px 30px;
+    background: #696969;
+    color: #fff;
+    border-top: solid 1px #efefef;
+}
+
+div#footer a {
+    color: #eee;
+    font-weight: bold;
+}
+
+div#top {
+    margin-top: 2px;
+    margin-bottom: 20px;
+    background: #eee;
+    padding: 5px;
+    border-bottom: solid 1px #ddd;
 }
 
 ul#menu {
-    background: #efefef;
-    padding: 5px;
+    float: right;
+    margin-right: 10px;
 }
 
 ul#menu li {
@@ -60,7 +152,6 @@ ul.hlist li {
 /* Flash messages */
 div#flash {
 	width: 600px;
-	font-size: 11px;
 	position: fixed;
 	top: 2px;
 	left: 300px;
@@ -76,12 +167,25 @@ div#flash > div.ok {
 	background: #DCE4EF url('/images/icons/information.png') no-repeat 10px 50%;
 }
 
+div#flash > div.waiting {
+    background: #FAB65A;
+    color: #fff;
+}
+
 div#flash > div.warning {
     background: #EBEF61 url('/images/icons/error.png') no-repeat 10px 50%;
 }
 
 div#flash > div.error {
     background: #F1A498 url('/images/icons/exclamation.png') no-repeat 10px 50%;
+}
+
+dl.info dt {
+    color: #595959;
+}
+
+dl.info dd {
+    margin-left: 20px;
 }
 
 /* Horiz. selector */
@@ -104,25 +208,20 @@ ul.hselector li.active > a {
 }
 
 /* Editor */
-.editor .editor-area-wrapper {
-	width: 650px;
-	float: left;
-	margin-left: 20px;
+div#editor_area_wrapper {
+    margin: 2px 0 0 0;
+    border-top: solid 1px #bec6d1;
+    border-bottom: solid 1px #bec6d1;
 }
 
-.editor .editor-area-wrapper .editor-area {
-	width: 640px;
-	height: 500px;
-}
-
-.editor .editor-sidebar {
-	width: 150px;
-	float: left;
-	border-right: 1px #494949 dotted;
-}
-
-.editor .editor-sidebar .editor-symbol-list {
-	padding-right: 5px;
+div#editor_area_wrapper .CodeMirror-line-numbers {
+    font-size: 13px;
+    font-family: monospace;
+    background: #d5deeb;
+    padding: 0 2px;
+    min-width: 25px;
+    border-right: solid 1px #bec6d1;
+    margin-right: 5px;
 }
 
 /* Login */
@@ -146,11 +245,12 @@ body#pg_login div#aboutvertex {
 
 /* Workspace */
 div.editor-workspace div.workspace-sidebar {
-    width: 250px;
+    width: 200px;
     float: left;
     padding: 0;
     margin: 0;
     border-right: solid 1px #ddd;
+    font-size: 0.95em;
 }
 
 div.workspace-sidebar ul.project-file-list li > img {
@@ -159,14 +259,12 @@ div.workspace-sidebar ul.project-file-list li > img {
 }
 
 div.editor-workspace div.workspace-editing-area {
+    width: 780px;
     float: right;
-    min-height: 500px;
-    width: 900px;
+    padding-bottom: 50px;
 }
 
 div#editing-area-tab-content {
-	clear: both;
-	min-height: 500px;
 }
 
 ul.action-bar li {
@@ -201,7 +299,20 @@ ul.action-bar li:hover > a {
     color: #000;
 }
 
+div.project-sidebar {
+    height: 100%;
+}
+
+ul#project-sidebar-actions {
+    margin-top: 10px;
+}
+
+ul.project-file-list {
+    margin-top: 20px;
+}
+
 ul.project-file-list li {
+    list-style: none;
     padding: 0 0 2px 4px;
     border-bottom: solid 1px #efefef;
     margin: 0 0 3px 0;
@@ -228,6 +339,7 @@ ul.tabs li {
 	font-size: 11px;
 	background: #ddd;
 	margin-right: 2px;
+	display: inline-block;
 }
 
 ul.tabs li a {
@@ -243,17 +355,21 @@ ul.tabs li.active {
 }
 
 /* Revisions */
-div#revisions-index > ul {
+#revisions-index .revisions-list {
+    margin-top: 20px;
+}
+
+#revisions-index .revisions-list > ul {
 	padding-left: 20px;
 }
 
-div#revisions-index div.compare-radios {
+#revisions-index .revisions-list div.compare-radios {
 	display: inline;
 	padding-left: 10px;
 	font-size: 10px;
 }
 
-div#revisions-index div#compare-window {
+#revisions-index div#compare-window {
 	width: 800px;
 	border: solid 2px #67a321;
 	min-height: 400px;
@@ -282,7 +398,7 @@ div#revision-comparison table td, div#revision-comparison table th {
 	padding: 2px;
 }
 
-div#revisions-index div.revision-inline-editor {
+#revisions-index div.revision-inline-editor {
 	margin-top: 10px;
 	border-left: solid 5px #eee;
 	padding-left: 10px;
@@ -339,6 +455,14 @@ div#editor-misc-output div.content {
 }
 
 /* Editor toolbars */
+ul#editor-toolbar-main-actions {
+    margin-top: 5px;
+}
+
+ul#editor-toolbar-editing-actions {
+    margin-top: 20px;
+}
+
 ul#editor-toolbar-editing-actions li {
 	height: 17px;
 	margin: 0 1px 0 0;
@@ -347,12 +471,17 @@ ul#editor-toolbar-editing-actions li {
 	border: solid 1px #5C8CD4;
 }
 
+ul#editor-binary-actions {
+    margin-top: 10px;
+}
+
 /* Symbol list */
 div#editor-latex-symbols {
 	width: 200px;
 	border: solid 1px #5c8cd4;
-	background: #CFE4FC;
+	background: #CFE4FC !important;
 	padding: 2px;
+	z-index: 999;
 }
 
 div#editor-latex-symbols span {
@@ -376,25 +505,103 @@ div#editor-latex-symbols li {
 	width: 20px;
 	height: 20px;
 	text-align: center;
-	display: inline-block;
+	display: inline-block !important;
 }
 
-/*----------------------------------------------------------------------------------------------
- * Styles for the 'Button' component
- */
-
-.Button
-{
-	border-style: solid;
-	border-color: #444444;
-	border-width: 2px;
-	background-color: #699fcd;
-	text-align: center;	
-	padding: 0px;
-	vertical-align: middle;
-	display: table-cell;
-	text-align: 50%;
-	margin: 0px;
-	color: #FFFFFF;
+/* forms */
+form input {
+    font-family: inherit;
+    font-size: inherit;
 }
-//----------------------------------------------------------------------------------------------
+
+form input.textfield, form input.passwordfield, form select, form textarea {
+    padding: 2px 4px;
+    border: solid 1px #999;
+}
+
+form input.textfield:focus, input.passwordfield:focus, form select:focus, form textarea:focus {
+    background: #ffffcc;
+}
+
+form input.submitbutton {
+    padding: 2px 8px 4px;
+    background: #BBB url(/images/buttons-bg.png) 0 0 repeat-x;
+    border: solid 1px #AAA;
+    border-bottom-color: #888;
+    font-weight: bold;
+    line-height: 14px;
+    cursor: pointer;
+    color: #555;
+}
+
+form input.submitbutton:hover, form input.submitbutton:focus {
+    color: #000;
+}
+
+form input.checkbox {
+    margin: 10px 0 0;
+}
+
+form td {
+    padding-bottom: 4px;
+    vertical-align: top;
+}
+
+form td.labelcol {
+    padding-right: 10px;
+}
+
+form td.labelcol label {
+    font-weight: bold;
+}
+
+form td.labelcol label:after {
+    content: ':';
+}
+
+form span.fielderror:before {
+    content: '[';
+    margin-right: 2px;
+}
+
+form span.fielderror:after {
+    content: ']';
+    margin-left: 2px;
+}
+
+form span.fieldhelp {
+    vertical-align: top;    
+    color: #999;
+}
+
+form span.fielderror {
+    vertical-align: top;    
+    margin-left: 20px;
+    color: #cc0033;
+}
+
+form input.invalid {
+    border-color: #cc0033;
+}
+
+/* page forms */
+form#add_blank_file_form, form#import_file_form {
+    margin-left: 20px;
+}
+
+form#invite_people_form {
+    margin-top: 10px;
+}
+
+form#update_file_form {
+    margin-top: 30px;
+    border: dotted 1px #ccc;
+    padding: 10px;
+}
+
+
+/* login page */
+div#aboutvertex .aboutvertex_explanation {
+    color: #494949;
+    border-bottom: solid 1px #eee;
+}

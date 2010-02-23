@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 latex_symbols = {u'Relations':
                  (r'\le', r'\ge', r'\neq', r'\sim', r'\ll', r'\gg', r'\doteq',
                   r'\simeq', r'\subset', r'\supset', r'\approx', r'\asymp',

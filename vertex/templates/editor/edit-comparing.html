@@ -1,0 +1,10 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude">
+     
+    <py:choose test="file.is_binary">
+        <xi:include py:when="" href="editor-binary.html" py:with="open_readonly = True;" />
+        <xi:include py:otherwise="" href="editor-latex.html" py:with="open_readonly = True;" />
+    </py:choose>
+     
+</div>
