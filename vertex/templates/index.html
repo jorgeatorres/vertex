@@ -22,7 +22,7 @@
     </li>
     <li py:if="projects">
         <h3 style="margin-bottom: 0;">${_('Check the status of your projects')}</h3>
-        ${_('There are the projects you\'re involved with.')}<br/><br/>
+        ${_('These are the projects you\'re involved with.')}<br/><br/>
         <py:for each="project in projects">
             &raquo; <a href="${tg.url('/editor/workspace/%s' % project.id)}">${project.title}</a><br/>
         </py:for>
