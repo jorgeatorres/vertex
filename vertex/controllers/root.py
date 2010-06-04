@@ -221,6 +221,9 @@ class RootController(BaseController):
 
     @expose('vertex.templates.login')
     def login(self, came_from=url('/')):
+        if request.identity:
+            redirect(url('/'))
+        
         login_counter = request.environ['repoze.who.logins']
         if login_counter > 0:
             flash(_('Wrong credentials'), 'warning')
@@ -249,4 +252,11 @@ class RootController(BaseController):
     @require(predicates.not_anonymous())
     @expose('json')
     def profile_edit_do(self, **kw):
+        user = request.identity['user']
+        user.email_address = kw['email_address']
+        user.institution = kw['institution']
+        
+        if kw['new_password'] is not None:
+            user.password = kw['new_password']        
+        
         return dict(_msg=_('Profile updated.'), _status=u'ok')

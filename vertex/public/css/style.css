@@ -164,7 +164,7 @@ div#flash > div {
 }
 
 div#flash > div.ok {
-	background: #DCE4EF url('/images/icons/information.png') no-repeat 10px 50%;
+   background: #DCE4EF url('../images/icons/information.png') no-repeat 10px 50%;	
 }
 
 div#flash > div.waiting {
@@ -173,11 +173,11 @@ div#flash > div.waiting {
 }
 
 div#flash > div.warning {
-    background: #EBEF61 url('/images/icons/error.png') no-repeat 10px 50%;
+    background: #EBEF61 url('../images/icons/error.png') no-repeat 10px 50%;    
 }
 
 div#flash > div.error {
-    background: #F1A498 url('/images/icons/exclamation.png') no-repeat 10px 50%;
+    background: #F1A498 url('../images/icons/exclamation.png') no-repeat 10px 50%;    
 }
 
 dl.info dt {
@@ -514,13 +514,18 @@ form input {
     font-size: inherit;
 }
 
+form input.textfield, form input.passwordfield, form select, form textarea {
+    padding: 2px 4px;
+    border: solid 1px #999;
+}
+
 form input.textfield:focus, input.passwordfield:focus, form select:focus, form textarea:focus {
     background: #ffffcc;
 }
 
 form input.submitbutton {
     padding: 2px 8px 4px;
-    background: #BBB url(/images/buttons-bg.png) 0 0 repeat-x;
+    background: #BBB url(../images/buttons-bg.png) 0 0 repeat-x;    
     border: solid 1px #AAA;
     border-bottom-color: #888;
     font-weight: bold;

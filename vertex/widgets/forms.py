@@ -1,11 +1,12 @@
 # coding: utf-8
 import json
 from pylons.i18n import ugettext as _, lazy_ugettext as l_
+from tg import url
 
 from tw.jquery import js_function, js_callback
 from tw.forms import TableForm, TextField, TextArea, HiddenField, Spacer, \
-                     FileField
-from tw.forms.validators import UnicodeString, FieldStorageUploadConverter
+                     FileField, PasswordField
+from tw.forms.validators import UnicodeString, FieldStorageUploadConverter, Email
 
 
 class AjaxForm(TableForm):
@@ -57,9 +58,10 @@ class AddProjectForm(AjaxForm):
     submit_text = u'Create'
     
 class ProfileEditForm(AjaxForm):
-    fields = [TextField(u'email_address', label_text=_('E-mail')),
+    fields = [TextField(u'email_address', label_text=_('E-mail'), validator=Email(not_empty=True, strip=True)),
+              PasswordField(u'new_password', label_text=_('New password'), validator=UnicodeString(strip=True, if_invalid=None, if_empty=None)),
               Spacer(),
-              TextField(u'institution', label_text=_('Institution'))]
+              TextField(u'institution', label_text=_('Institution'), validator=UnicodeString(strip=True, if_empty=u'', if_invalid=u''))]
     submit_text = _('Update profile')
     
 class InvitePeopleForm(AjaxForm):
@@ -68,17 +70,17 @@ class InvitePeopleForm(AjaxForm):
     submit_text = _('Invite')
     
    
-add_blank_file_form = AddBlankFileForm('add_blank_file_form', action='/files/new')
-import_file_form = ImportFileForm('import_file_form', action='/files/upload')
-update_file_form = UpdateFileForm('update_file_form', action='/files/upload_update')
+add_blank_file_form = AddBlankFileForm('add_blank_file_form', action=url('/files/new'))
+import_file_form = ImportFileForm('import_file_form', action=url('/files/upload'))
+update_file_form = UpdateFileForm('update_file_form', action=url('/files/upload_update'))
 
 add_project_form = AddProjectForm('add_project_form',
-                                  action=u'/projects/add_do')
+                                  action=url('/projects/add_do'))
 
 invite_people_form = InvitePeopleForm('invite_people_form',
-                                      action=u'/projects/members_add')
+                                      action=url('/projects/members_add'))
 
 profile_edit_form = ProfileEditForm('profile_edit_form',
-                                    action=u'/profile_edit_do',
+                                    action=url('/profile_edit_do'),
                                     clearForm=False,
                                     resetForm=False)
