@@ -514,11 +514,6 @@ form input {
     font-size: inherit;
 }
 
-form input.textfield, form input.passwordfield, form select, form textarea {
-    padding: 2px 4px;
-    border: solid 1px #999;
-}
-
 form input.textfield:focus, input.passwordfield:focus, form select:focus, form textarea:focus {
     background: #ffffcc;
 }
