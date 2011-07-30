@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    background: #fff;
+}
+
+h1 {
+    font-size: 148.5%;
+    color: #B4200E;
+}
+
+h2 {
+    font-size: 133.1%;
+}
+
+h3 {
+    /*14px via YUI Fonts CSS foundation*/
+    font-size:108%;
+}
+
+
+h1, h2, h3, h4 {
+    margin: 1em 0;
+    font-family: monaco, monospace;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+    font-weight: bold;
+}
+
+blockquote, ul, ol, dl {
+    margin: 1em 1em 1em 25px;
+}
+
+ol li {
+    list-style: decimal outside;
+}
+
+ul li {
+    list-style: disc outside;
+}
+
+p, fieldset, table {
+    margin-bottom: 1em;
+}
+
+p {
+    line-height: 1.4em;
+}
+
+a {
+    color: #1161D9;
+}
+
+img {
+    border: none;
+}
+
+table td {
+	padding: 4px;
+}
+
+table th {
+	background: #efefef;
+	padding: 4px;
+}
+
+div#wrapper {
+    margin: 50px auto;
+    width: 800px;
+    height: 100%;
+}
+
+div#left {
+    float: left;
+    width: 200px;
+    height: 100%;
+}
+
+ul#nav {
+    margin: 20px 0 0 0;
+}
+
+ul#nav li {
+    display: block;
+    font-weight: bold;
+    font-size: 1.6em;
+    padding: 5px 10px 5px 0;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+ul#nav li a {
+    text-decoration: none;
+    width: 100%;
+    color: #696969;
+}
+
+ul#nav li:hover a {
+    border-bottom: dotted 1px #696969;
+}
+
+ul#nav li.active {
+    background: #b8e15e;
+    border-left: solid 4px #708a3a;
+}
+
+ul#nav li.active a {
+    color: #000;
+}
+
+div#header {
+    clear: both;
+}
+
+div#content {
+    margin-left: 270px;
+}
+
+ul#screenshots-list {
+    margin: 35px 0 0 0;
+}
+
+li.screenshot {
+    list-style-type: none;
+    min-height: 100px;
+    background: #efefef;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: dotted 1px #bbb;
+}
+
+li.screenshot .thumbnail {
+    width: 150px;
+    height: 100px;
+    background: red;
+    float: left;
+}
+
+li.screenshot .caption {
+    margin: 20px 0 0 180px;
+    color: #494949;
+}
+
+.langselector {
+    font-size: 11px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.langselector span {
+    color: #aaa;
+}
+
+.langselector a:before {
+    content: '[';
+}
+
+.langselector a:after {
+    content: ']';
+}
+
+.langselector a.selected {
+    font-weight: bold;
+}

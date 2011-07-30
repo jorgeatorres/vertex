@@ -1,77 +1,154 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset='utf-8'>
-
-  <title>jorgeatorres/vertex @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #8c2de4;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #73d21b; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #73d21b; }
-    h3 { text-align: center; color: #73d21b; }
-    a { color: #73d21b; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+    <title>verTeX</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <a href="http://github.com/jorgeatorres/vertex"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+    <div id="wrapper">
+        <div id="left">
+            <ul id="nav">
+                <li><a href="#vertex">verTeX</a></li>
+                <li><a href="#screenshots">screenshots</a></li>
+                <li><a href="#downloads">downloads</a></li>
+                <li><a href="#development">development</a></li>
+            </ul>
+            
+            <div class="langselector">
+                <span>lang:</span>
+                <a href="index.html" class="selected" title="in english">en</a>
+                <a href="index-es.html" title="en español">es</a>
+            </div>
+        </div>
 
-    <div class="download">
-      <a href="http://github.com/jorgeatorres/vertex/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/jorgeatorres/vertex/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+        <div id="content">
+        </div>
     </div>
 
-    <h1><a href="http://github.com/jorgeatorres/vertex">vertex</a>
-      <span class="small">by <a href="http://github.com/jorgeatorres">jorgeatorres</a></span></h1>
+    <div id="vertex" style="display: none;">
+        <h1>Acerca de verTeX</h1>
+        <p><b>verTeX</b> is a web application specially designed for collaborative editing of scientific texts requiring mathematical symbols. It's based on the LaTeX system and as such provides a superior quality in terms of typographical quality.</p>
+        
+        <div id="features">
+            <h2>Features</h2>
 
-    <div class="description">
-      Collaborative online LaTeX editor in web 2.0 style. 
+            <ul>
+                <li><b>verTeX</b> users require only a computer with internet access in order to use the application (no LaTeX compilers required).</li>
+                <li><b>verTeX</b> is designed for collaboration: users can create different projects, handle permissions between collaborators and invite new editors.</li>
+                <li>With the versioning system included in <b>verTeX</b> you'll never lose your work: you can also compare between different revisions of your documents, compile any previous version or revert changes easily.</li>
+                <li>Among other <b>verTeX</b> features you'll find an integrated LaTeX editor (with syntax highlighting), PDF, DVI and PS export and handling of binary files.</li>
+            </ul>
+        </div>
+
+        <div id="license">
+        <h2>License</h2>
+        <p><b>verTeX</b> is free software licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.txt">GNU General Public License v2.0</a>.</p>
+        </div>
     </div>
 
-    <h2>Authors</h2>
-<p>Jorge Torres (jtorresh@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Jorge A. Torres (jtorresh@gmail.com)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/jorgeatorres/vertex/zipball/master">zip</a> or
-      <a href="http://github.com/jorgeatorres/vertex/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/jorgeatorres/vertex</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/jorgeatorres/vertex">jorgeatorres/vertex</a>
+    <div id="downloads" style="display: none;">
+    	<h1>Downloads</h1>
+    	<table>
+    		<thead>
+	    		<tr>
+	    			<th>Date</th>
+	    			<th>Files</th>
+	    			<th>Description</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>03-Jun-2010</td>
+    				<td>
+    				 <a href="http://github.com/downloads/jorgeatorres/vertex/vertex-devel-20100603.tar.gz">vertex-devel-20100603.tar.gz</a> (834KB) <br/>
+    				 <a href="http://github.com/downloads/jorgeatorres/vertex/vertex-devel-20100603.zip">vertex-devel-20100603.zip</a> (1.1MB)
+    				</td>
+    				<td>Development build</td>
+    			</tr>
+    		</tbody>
+    	</table>
     </div>
 
-  </div>
+    <div id="screenshots" style="display: none;">
+        <h1>Screenshots</h1>
+        <p>Screenshots of the development build of verTeX.<br />
+        <span style="font-size: 0.8em">(click on the thumbnails to see a complete picture).</span></p>
 
-  
+        <ul id="screenshots-list">
+            <li class="screenshot">
+                <a href="images/editor-en.png" target="_blank"><img src="images/thumbs-editor.png" class="thumbnail" /></a>
+                <div class="caption">Project file-list view and LaTeX editor with syntax highlighting.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/latexsymbols.png" target="_blank"><img src="images/thumbs-latexsymbols.png" class="thumbnail" /></a>
+                <div class="caption">Floating menu for including predefined LaTeX symbols.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/compilation.png" target="_blank"><img src="images/thumbs-compilation.png" class="thumbnail" /></a>
+                <div class="caption">Compilation results and download options for the document.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/binaryfile.png" target="_blank"><img src="images/thumbs-binaryfile.png" class="thumbnail" /></a>
+                <div class="caption">verTeX handles binary files (such as images) transparently.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/versiondiff-en.png" target="_blank"><img src="images/thumbs-versiondiff.png" class="thumbnail" /></a>
+                <div class="caption">Comparing two revisions of a file.</div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="development" style="display: none;">
+        <h1>verTeX development</h1>
+        <p><b>verTeX</b> is built on <a href="http://www.python.org">Python</a> using the <a href="http://www.turbogears.org">TurboGears 2.0</a> <i>framework</i> and the <a href="http://www.jquery.com">jQuery</a> javascript library for client-side interaction.<br />
+        For LaTeX compiling it uses the <tt>latex</tt> system command and <tt>dvipng</tt> in order to create PNG thumbnails of included editor symbols.</p>
+
+        <h2>Source code</h2>
+        <p><b>verTeX</b> is available in a Git repository at <a href="http://github.com/jorgeatorres/vertex">GitHub</a>.</p>
+        <p>You can download a copy of the source code from this repository with the following command:
+            <pre>$ git clone git://github.com/jorgeatorres/vertex.git</pre>
+        </p>
+
+        <h2>How can I help?</h2>
+
+        <ul>
+            <li>You can report <a href="http://github.com/nichohel/vertex/issues"><i>issues</i></a> or help with the current list of tasks.</li>
+            <li><b>verTeX</b> is free software: patches and ideas are welcome.</li>
+            <li>Get in touch with the developer at <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#106;&#x74;&#111;&#x72;&#114;&#x65;&#x73;&#104;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">jtorresh at gmail.com</a>.
+  </tt></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+    $(function(){
+        $('#nav li a').click(function(e){
+            e.preventDefault();
+            $('#nav li').removeClass('active');
+            $(this).closest('li').addClass('active');
+            $('#content').html($($(this).attr('href')).html());
+            window.location.href = window.location.href.replace(/#.+/, '') + $(this).attr('href');
+        });
+
+        var hash = window.location.href.match(/#.+/);
+
+        if (!hash) {
+            $('#nav li:first a').click();
+        } else {
+            $('#nav li a[href=' + hash + ']').click();
+        }
+    });
+    </script>
+
 </body>
+
 </html>

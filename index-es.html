@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>verTeX</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="left">
+            <ul id="nav">
+                <li><a href="#vertex">verTeX</a></li>
+                <li><a href="#screenshots">pantallazos</a></li>
+                <li><a href="#downloads">descargas</a></li>
+                <li><a href="#development">desarrollo</a></li>
+            </ul>
+            
+            <div class="langselector">
+                <span>idioma:</span>
+                <a href="index.html" title="in english">en</a>
+                <a href="index-es.html" class="selected" title="en español">es</a>
+            </div>
+        </div>
+
+        <div id="content">
+        </div>
+    </div>
+
+    <div id="vertex" style="display: none;">
+        <h1>Acerca de verTeX</h1>
+        <p><b>verTeX</b> es un aplicativo web especialmente preparado para la edición colaborativa de textos científicos en los que se requieren símbolos matemáticos. Está basado en el sistema LaTeX y por tanto proporciona la mejor calidad en materia tipográfica.</p>
+        
+        <div id="features">
+            <h2>Características</h2>
+
+            <ul>
+                <li>Los usuarios de <b>verTeX</b> sólo necesitan una
+                conexión a internet en su propio computador.</li>
+                <li><b>verTeX</b> está orientado al trabajo colaborativo: puede
+                crear diferentes proyectos de edición, gestionar los permisos de
+                sus colaboradores, invitar nuevos editores.</li>
+                <li>Con el control de versiones incorporado en <b>verTeX</b>
+                no perderá nunca el trabajo realizado: podrá comparar diferentes
+                revisiones de sus documentos, compilar cualquier versión
+                anterior de los mismos o revertir cambios con facilidad.</li>
+                <li>Dentro otras de las cualidades de <b>verTeX</b> se destaca
+                el editor LaTeX incluído, la posibilidad de exportar sus
+                documentos en diferentes formatos (PDF, DVI, PS) o la gestión de
+                versiones de archivos binarios.</li>
+            </ul>
+        </div>
+
+        <div id="license">
+        <h2>Licencia</h2>
+        <p><b>verTeX</b> es software libre licenciado bajo la <a href="http://www.gnu.org/licenses/gpl-2.0.txt">GNU General Public License v2.0</a>.</p>
+        </div>
+    </div>
+
+    <div id="downloads" style="display: none;">
+    	<h1>Descargas</h1>
+    	<table>
+    		<thead>
+	    		<tr>
+	    			<th>Fecha</th>
+	    			<th>Archivos</th>
+	    			<th>Descripción</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr>
+    				<td>03-Jun-2010</td>
+    				<td>
+    				 <a href="http://github.com/downloads/jorgeatorres/vertex/vertex-devel-20100603.tar.gz">vertex-devel-20100603.tar.gz</a> (834KB) <br/>
+    				 <a href="http://github.com/downloads/jorgeatorres/vertex/vertex-devel-20100603.zip">vertex-devel-20100603.zip</a> (1.1MB)
+    				</td>
+    				<td>Development build</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+
+    <div id="screenshots" style="display: none;">
+        <h1>Pantallazos</h1>
+        <p>Pantallazos de la versión en desarrollo de verTeX.<br />
+        <span style="font-size: 0.8em">(haga click sobre las miniaturas para ver la imagen completa).</span></p>
+
+        <ul id="screenshots-list">
+            <li class="screenshot">
+                <a href="images/editor.png" target="_blank"><img src="images/thumbs-editor.png" class="thumbnail" /></a>
+                <div class="caption">Vista del listado de archivos de un proyecto y el editor de LaTeX con coloreado de sintaxis.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/latexsymbols.png" target="_blank"><img src="images/thumbs-latexsymbols.png" class="thumbnail" /></a>
+                <div class="caption">Menú para inclusión de símbolos LaTeX predefinidos.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/compilation.png" target="_blank"><img src="images/thumbs-compilation.png" class="thumbnail" /></a>
+                <div class="caption">Resultados de una compilación exitosa de un documento, con posibilidad de descargar el resultado en formato PDF, DVI o PS.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/binaryfile.png" target="_blank"><img src="images/thumbs-binaryfile.png" class="thumbnail" /></a>
+                <div class="caption">verTeX gestiona archivos de contenido binario (como imágenes) de manera transparente.</div>
+            </li>
+
+            <li class="screenshot">
+                <a href="images/versiondiff.png" target="_blank"><img src="images/thumbs-versiondiff.png" class="thumbnail" /></a>
+                <div class="caption">Comparación de dos revisiones de un archivo con las diferencias indicadas.</div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="development" style="display: none;">
+        <h1>Desarrollo de verTeX</h1>
+        <p><b>verTeX</b> está desarrollado en <a href="http://www.python.org">Python</a> utilizando el <i>framework</i> <a href="http://www.turbogears.org">TurboGears 2.0</a> y la librería <a href="http://www.jquery.com">jQuery</a> del lado del cliente.<br />
+        Para la compilación de los documentos LaTeX se utiliza el comando
+        <tt>latex</tt> del sistema y <tt>dvipng</tt> para generar imágenes PNG de los símbolos incluídos en el editor.</p>
+
+        <h2>Código fuente</h2>
+        <p><b>verTeX</b> se encuentra disponible en un repositorio Git en <a href="http://github.com/jorgeatorres/vertex">GitHub</a>.</p>
+        <p>Puede descargar una copia del código fuente desde el repositorio con el siguiente comando:
+            <pre>$ git clone git://github.com/jorgeatorres/vertex.git</pre>
+        </p>
+
+        <h2>Cómo contribuir?</h2>
+
+        <ul>
+            <li>Puede reportar errores ó revisar los <a href="http://github.com/nichohel/vertex/issues"><i>issues</i></a> actuales si desea encontrar un punto de partida.</li>
+            <li><b>verTeX</b> es software libre: parches e ideas son bien recibidas.</li>
+            <li>Envíe un correo al desarrollador a la dirección <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#106;&#x74;&#111;&#x72;&#114;&#x65;&#x73;&#104;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">jtorresh at gmail.com</a>.
+  </tt></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+    $(function(){
+        $('#nav li a').click(function(e){
+            e.preventDefault();
+            $('#nav li').removeClass('active');
+            $(this).closest('li').addClass('active');
+            $('#content').html($($(this).attr('href')).html());
+            window.location.href = window.location.href.replace(/#.+/, '') + $(this).attr('href');
+        });
+
+        var hash = window.location.href.match(/#.+/);
+
+        if (!hash) {
+            $('#nav li:first a').click();
+        } else {
+            $('#nav li a[href=' + hash + ']').click();
+        }
+    });
+    </script>
+
+</body>
+
+</html>
