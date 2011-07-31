@@ -1,6 +1,6 @@
 About verTeX
 ======================
-- Author: Jorge A. Torres <jorge@0xfee1dead.org>
+- Author: Jorge A. Torres <jtorresh@gmail.com>
 - URL: http://0xfee1dead.org/vertex
 - Source Code: http://github.com/jorgeatorres/vertex
 
