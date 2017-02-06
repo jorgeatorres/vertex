@@ -1,7 +1,7 @@
 About verTeX
 ======================
 - Author: Jorge A. Torres <j at jorgetorres.co>
-- URL: http://0xfee1dead.org/vertex
+- URL: http://jorgeatorres.github.io/vertex/
 - Source Code: http://github.com/jorgeatorres/vertex
 
 verTeX is an online collaborative LaTeX editor featuring version control, syntax highlighting, management of projects and users and a lot more while still keeping it simple.
